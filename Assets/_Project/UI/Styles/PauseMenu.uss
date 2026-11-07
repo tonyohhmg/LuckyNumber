@@ -1,0 +1,56 @@
+.pause-root {
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(3, 7, 14, 0.8);
+}
+
+.pause-container {
+    background-color: rgba(255, 255, 255, 0.04);
+    border-color: rgba(165, 242, 243, 0.25);
+    border-width: 1px;
+    border-radius: 20px;
+    padding: 45px 65px;
+    align-items: center;
+    width: 460px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.pause-title {
+    font-size: 64px;
+    color: rgb(255, 255, 255);
+    -unity-font-style: normal;
+    letter-spacing: 6px;
+    margin-bottom: 32px;
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/LilitaOne-Regular.ttf?fileID=12800000&guid=859cccd890b6eb4429fb1986cea742e4&type=3#LilitaOne-Regular");
+    height: 64px;
+    -unity-text-align: middle-left;
+}
+
+.pause-button {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-color: rgba(165, 242, 243, 0.3);
+    border-width: 1.5px;
+    border-radius: 12px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    -unity-font-style: bold;
+    padding: 16px 50px;
+    letter-spacing: 4px;
+    width: 100%;
+    margin-bottom: 24px;
+    transition-duration: 0.3s;
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Bold.ttf?fileID=12800000&guid=03df7106d03eff243a35ba1fed28ab56&type=3#Overpass-Bold");
+    -unity-text-align: middle-center;
+    align-self: center;
+    align-items: center;
+    padding-top: 16px;
+    height: auto;
+    padding-bottom: 12px;
+}
+
+.pause-button:hover {
+    background-color: rgba(165, 242, 243, 0.2);
+    border-color: rgb(165, 242, 243);
+    box-shadow: 0 0 15px rgba(165, 242, 243, 0.3);
+}

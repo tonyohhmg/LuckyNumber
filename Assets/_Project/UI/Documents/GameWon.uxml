@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UI/Styles/GameWon.uss?fileID=7433441132597879392&amp;guid=eae6d5de138c5734b95aefde82b82f88&amp;type=3#GameWon"/>
+    <ui:VisualElement name="GameWonRoot" class="gamewon-root">
+        <ui:VisualElement class="gamewon-container">
+            <ui:Label text="EQUILIBRIUM ACHIEVED" class="gamewon-title"/>
+            <ui:Label text="You successfully weighed the soul at exactly 21g." class="gamewon-subtitle"/>
+            <ui:Button name="GameWonRestartButton" text="PLAY AGAIN" class="gamewon-button"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
