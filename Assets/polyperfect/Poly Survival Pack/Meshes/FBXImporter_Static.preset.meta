@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5dd895b1f612d294e929381ae747a630
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2655988077585873504
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 380614
+  packageName: Poly Survival Pack
+  packageVersion: 1.0
+  assetPath: Assets/polyperfect/Poly Survival Pack/Meshes/FBXImporter_Static.preset
+  uploadId: 918540

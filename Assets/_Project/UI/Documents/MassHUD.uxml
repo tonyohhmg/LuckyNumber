@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UI/Styles/MassHUD.uss?fileID=7433441132597879392&amp;guid=e2b08dfbfadbbcf4ba1fbfe8a21dcfaf&amp;type=3#MassHUD"/>
+    <ui:VisualElement name="HUDContainer" class="hud-root">
+        <ui:VisualElement name="MassIndicator" class="indicator-pill">
+            <ui:Label name="MassLabel" text="0.0g / 21.0g" class="mass-text"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

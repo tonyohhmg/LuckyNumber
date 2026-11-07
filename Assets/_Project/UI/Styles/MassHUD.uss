@@ -1,0 +1,29 @@
+.hud-root {
+    flex-grow: 1;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 30px;
+}
+
+.indicator-pill {
+    background-color: rgb(9, 13, 14);
+    border-color: rgba(0, 229, 255, 0.4);
+    border-width: 2px;
+    border-radius: 12px;
+    padding: 12px 24px;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4);
+    border-left-color: rgb(27, 38, 41);
+    border-right-color: rgb(27, 38, 41);
+    border-top-color: rgb(27, 38, 41);
+    border-bottom-color: rgb(27, 38, 41);
+}
+
+.mass-text {
+    font-size: 28px;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
