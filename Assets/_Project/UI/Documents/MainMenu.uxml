@@ -1,10 +1,16 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/_Project/UI/Styles/MainMenuCanvas.uss?fileID=7433441132597879392&amp;guid=6954dc696895e9342a3885c1c267a960&amp;type=3#MainMenuCanvas"/>
+    <Style src="project://database/Assets/_Project/UI/Styles/MainMenu.uss?fileID=7433441132597879392&amp;guid=6954dc696895e9342a3885c1c267a960&amp;type=3#MainMenu"/>
     <ui:VisualElement name="MenuRoot" class="menu-root">
-        <ui:VisualElement class="menu-container">
-            <ui:Label text="LUCKY NUMBER" class="game-title"/>
-            <ui:Label text="Balance the soul. Reach 21 grams." class="game-subtitle"/>
-            <ui:Button name="PlayButton" text="PLAY" class="menu-button primary-button"/>
+        <ui:VisualElement name="menu-container" class="menu-container">
+            <ui:Image name="GameTitleLogo" class="game-title-logo"/>
+            <ui:VisualElement name="divider" class="divider"/>
+            <ui:Label text="TWENTY-ONE ECHOES" class="game-subtitle"/>
+            <ui:Button name="PlayButton" class="menu-button">
+                <ui:VisualElement class="text-group">
+                    <ui:Label text="PLAY" class="button-text"/>
+                    <ui:VisualElement class="button-underline"/>
+                </ui:VisualElement>
+            </ui:Button>
             <ui:VisualElement class="controls-hint">
                 <ui:Label text="WASD / Move   |   Space / Absorb   |   E / Drop" class="hint-text"/>
             </ui:VisualElement>

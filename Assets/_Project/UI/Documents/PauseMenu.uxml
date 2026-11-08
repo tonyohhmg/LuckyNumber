@@ -3,9 +3,24 @@
     <ui:VisualElement name="PauseRoot" class="pause-root">
         <ui:VisualElement class="pause-container">
             <ui:Label text="PAUSED" class="pause-title"/>
-            <ui:Button name="ResumeButton" text="RESUME" class="pause-button"/>
-            <ui:Button name="RestartButton" text="RESTART LEVEL" class="pause-button"/>
-            <ui:Button name="MenuButton" text="MAIN MENU" class="pause-button"/>
+            <ui:Button name="ResumeButton" class="menu-button">
+                <ui:VisualElement class="text-group">
+                    <ui:Label text="RESUME" class="button-text"/>
+                    <ui:VisualElement class="button-underline"/>
+                </ui:VisualElement>
+            </ui:Button>
+            <ui:Button name="RestartButton" class="menu-button">
+                <ui:VisualElement class="text-group">
+                    <ui:Label text="RESTART LEVEL" class="button-text"/>
+                    <ui:VisualElement class="button-underline"/>
+                </ui:VisualElement>
+            </ui:Button>
+            <ui:Button name="MenuButton" class="menu-button">
+                <ui:VisualElement class="text-group">
+                    <ui:Label text="MAIN MENU" class="button-text"/>
+                    <ui:VisualElement class="button-underline"/>
+                </ui:VisualElement>
+            </ui:Button>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

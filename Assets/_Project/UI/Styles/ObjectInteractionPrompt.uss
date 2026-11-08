@@ -5,27 +5,77 @@
 }
 
 .prompt-box {
-    background-color: rgba(9, 13, 14, 0.863);
+    background-color: rgba(255, 255, 255, 0.039);
     border-color: rgba(0, 229, 255, 0.5);
     border-width: 2px;
     border-radius: 8px;
     padding: 10px 20px;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     position: absolute;
     bottom: 60%;
     left: 55%;
-    border-left-color: rgb(27, 38, 41);
-    border-right-color: rgb(27, 38, 41);
-    border-top-color: rgb(27, 38, 41);
-    border-bottom-color: rgb(27, 38, 41);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
     backdrop-filter: blur(4);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    flex-direction: column;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
-.prompt-text {
+.prompt-name-text {
     font-size: 18px;
     color: rgb(255, 255, 255);
+    letter-spacing: 1px;
+    margin-right: 8px;
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Regular.ttf?fileID=12800000&guid=b216ab5c5d76f8043a9afa13090ae148&type=3#Overpass-Regular");
+    flex-direction: column;
+    height: 18px;
+    -unity-text-align: middle-left;
+}
+
+.weight-container {
+    flex-direction: row;
+    align-items: center;
+}
+
+.prompt-weight-icon {
+    width: 21px;
+    height: 24px;
+    background-image: url("project://database/Assets/_Project/Art/weight.svg?fileID=7388822144124034973&guid=77afc35280fecff44b793ec20f8e9a40&type=3#weight");
+    background-size: cover;
+    margin-right: 8px;
+    -unity-background-scale-mode: stretch-to-fill;
+}
+
+.prompt-weight-text {
+    font-size: 40px;
+    color: rgb(127, 189, 250);
     -unity-font-style: bold;
     letter-spacing: 1px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Bold.ttf?fileID=12800000&guid=03df7106d03eff243a35ba1fed28ab56&type=3#Overpass-Bold");
+    -unity-text-align: middle-left;
+    right: auto;
+    height: 40px;
+    padding-top: 8px;
+}
+
+.prompt-weight-echoes {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.549);
+    -unity-font-style: bold;
+    letter-spacing: 1px;
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Light.ttf?fileID=12800000&guid=a74d9ff475d6b9f45955827d0b734a24&type=3#Overpass-Light");
 }

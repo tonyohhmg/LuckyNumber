@@ -2,7 +2,13 @@
     <Style src="project://database/Assets/_Project/UI/Styles/MassHUD.uss?fileID=7433441132597879392&amp;guid=e2b08dfbfadbbcf4ba1fbfe8a21dcfaf&amp;type=3#MassHUD"/>
     <ui:VisualElement name="HUDContainer" class="hud-root">
         <ui:VisualElement name="MassIndicator" class="indicator-pill">
-            <ui:Label name="MassLabel" text="0.0g / 21.0g" class="mass-text"/>
+            <ui:Label text="SOUL MASS" class="hud-header" />
+            <ui:VisualElement class="weight-row">
+                <ui:Label name="CurrentWeightLabel" text="0.0" class="current-weight-text" />
+                <ui:Label text=" / " class="weight-separator" />
+                <ui:Label name="TargetWeightLabel" text="21.0" class="target-weight-text" />
+            </ui:VisualElement>
+            <ui:Label text="echoes" class="echoes-label" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

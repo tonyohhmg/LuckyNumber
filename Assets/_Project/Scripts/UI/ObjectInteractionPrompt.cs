@@ -10,7 +10,9 @@ public class ObjectInteractionPrompt : MonoBehaviour
 
     private UIDocument uiDocument;
     private VisualElement promptContainer;
-    private Label promptLabel;
+    private Label nameLabel;
+    private Label weightLabel;
+    private Label echoesLabel;
 
     private void Awake()
     {
@@ -38,7 +40,9 @@ public class ObjectInteractionPrompt : MonoBehaviour
         {
             var root = uiDocument.rootVisualElement;
             promptContainer = root.Q<VisualElement>("PromptContainer");
-            promptLabel = root.Q<Label>("PromptLabel");
+            nameLabel = root.Q<Label>("ArtifactNameLabel");
+            weightLabel = root.Q<Label>("ArtifactWeightLabel");
+            echoesLabel = root.Q<Label>("ArtifactWeightEchoes");
         }
 
         HidePrompt();
@@ -51,7 +55,7 @@ public class ObjectInteractionPrompt : MonoBehaviour
 
     private void CheckForInteractable()
     {
-        if (playerTransform == null || promptContainer == null || promptLabel == null) return;
+        if (playerTransform == null || promptContainer == null || nameLabel == null || weightLabel == null || echoesLabel == null) return;
 
         // Check for any colliders within the interaction radius around the player
         Collider[] hits = Physics.OverlapSphere(playerTransform.position, interactionRadius, pickupLayer);
@@ -86,7 +90,9 @@ public class ObjectInteractionPrompt : MonoBehaviour
 
     private void ShowPrompt(string itemName, float weight)
     {
-        promptLabel.text = $"{itemName} <color=#00E5FF>{weight:F1}g</color>";
+        nameLabel.text = itemName;
+        weightLabel.text = $"{weight:F1}";
+        echoesLabel.text = "echoes";
         promptContainer.style.display = DisplayStyle.Flex;
     }
 

@@ -2,7 +2,12 @@
     <Style src="project://database/Assets/_Project/UI/Styles/ObjectInteractionPrompt.uss?fileID=7433441132597879392&amp;guid=1ef03b3188e45774db54fc7cdb6bcc40&amp;type=3#ObjectInteractionPrompt"/>
     <ui:VisualElement name="PromptRoot" class="prompt-root">
         <ui:VisualElement name="PromptContainer" class="prompt-box">
-            <ui:Label name="PromptLabel" text="Artifact (3.0g)" class="prompt-text"/>
+            <ui:Label name="ArtifactNameLabel" text="Artifact" class="prompt-name-text"/>
+            <ui:VisualElement name="weight-container" class="weight-container">
+                <ui:VisualElement name="ArtifactWeightIcon" class="prompt-weight-icon"/>
+                <ui:Label name="ArtifactWeightLabel" text="3.0" class="prompt-weight-text"/>
+                <ui:Label name="ArtifactWeightEchoes" text="echoes" class="prompt-weight-echoes"/>
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

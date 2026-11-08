@@ -44,6 +44,15 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         InitializeGameState();
+
+        if (Gamepad.current != null)
+        {
+            Debug.Log($"[InputSystem] Gamepad detected: {Gamepad.current.displayName}");
+        }
+        else
+        {
+            Debug.LogWarning("[InputSystem] No gamepad currently detected. Check connection or plug it in.");
+        }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -123,27 +132,64 @@ public class GameManager : MonoBehaviour
             var playBtn = doc.rootVisualElement.Q<Button>("PlayButton");
             if (playBtn != null)
             {
+                // Unregister first to avoid duplicate bindings
                 playBtn.clicked -= StartGame;
                 playBtn.clicked += StartGame;
+
+                // --- RESTORED: Hover sound listener ---
+                playBtn.UnregisterCallback<PointerEnterEvent>(OnPlayButtonHover);
+                playBtn.RegisterCallback<PointerEnterEvent>(OnPlayButtonHover);
+
+                Debug.Log("[GameManager] PlayButton successfully bound with click and hover audio!");
+            }
+            else
+            {
+                Debug.LogWarning("[GameManager] PlayButton could not be found inside the Main Menu UIDocument!");
             }
         }
     }
 
-    private void BindPauseMenuButtons()
+    private void OnPlayButtonHover(PointerEnterEvent evt)
     {
-        if (pauseMenuContainer == null) return;
-        var doc = pauseMenuContainer.GetComponent<UIDocument>();
-        if (doc != null && doc.rootVisualElement != null)
+        if (AudioManager.Instance != null)
         {
-            var resumeBtn = doc.rootVisualElement.Q<Button>("ResumeButton");
-            var restartBtn = doc.rootVisualElement.Q<Button>("RestartButton");
-            var menuBtn = doc.rootVisualElement.Q<Button>("MenuButton");
-
-            if (resumeBtn != null) { resumeBtn.clicked -= ResumeGame; resumeBtn.clicked += ResumeGame; }
-            if (restartBtn != null) { restartBtn.clicked -= RestartLevel; restartBtn.clicked += RestartLevel; }
-            if (menuBtn != null) { menuBtn.clicked -= GoToMainMenu; menuBtn.clicked += GoToMainMenu; }
+            AudioManager.Instance.PlayButtonHoverSound();
         }
     }
+
+    private void BindPauseMenuButtons()
+{
+    if (pauseMenuContainer == null) return;
+    var doc = pauseMenuContainer.GetComponent<UIDocument>();
+    if (doc != null && doc.rootVisualElement != null)
+    {
+        var resumeBtn = doc.rootVisualElement.Q<Button>("ResumeButton");
+        var restartBtn = doc.rootVisualElement.Q<Button>("RestartButton");
+        var menuBtn = doc.rootVisualElement.Q<Button>("MenuButton");
+
+        if (resumeBtn != null) 
+        { 
+            resumeBtn.clicked -= ResumeGame; 
+            resumeBtn.clicked += ResumeGame; 
+            resumeBtn.UnregisterCallback<PointerEnterEvent>(OnPlayButtonHover);
+            resumeBtn.RegisterCallback<PointerEnterEvent>(OnPlayButtonHover);
+        }
+        if (restartBtn != null) 
+        { 
+            restartBtn.clicked -= RestartLevel; 
+            restartBtn.clicked += RestartLevel; 
+            restartBtn.UnregisterCallback<PointerEnterEvent>(OnPlayButtonHover);
+            restartBtn.RegisterCallback<PointerEnterEvent>(OnPlayButtonHover);
+        }
+        if (menuBtn != null) 
+        { 
+            menuBtn.clicked -= GoToMainMenu; 
+            menuBtn.clicked += GoToMainMenu; 
+            menuBtn.UnregisterCallback<PointerEnterEvent>(OnPlayButtonHover);
+            menuBtn.RegisterCallback<PointerEnterEvent>(OnPlayButtonHover);
+        }
+    }
+}
 
     private void BindGameOverButtons()
     {
@@ -185,15 +231,29 @@ public class GameManager : MonoBehaviour
     // --- Game State Actions ---
     public void StartGame()
     {
+        Debug.Log("[GameManager] StartGame() triggered!");
         isInMainMenu = false;
+        
         if (mainMenuContainer != null) 
         {
+            // This disables the entire Main Menu GameObject (hiding the background image & UI root)
             mainMenuContainer.SetActive(false);
             EnableUIContainerInput(mainMenuContainer, false);
+        }
+        else
+        {
+            Debug.LogWarning("[GameManager] mainMenuContainer reference is missing in the Inspector!");
         }
 
         Time.timeScale = 1f;
         if (playerControllerScript != null) playerControllerScript.enabled = true;
+
+        // Trigger portal sequence
+        GameStartPortalManager portalManager = FindAnyObjectByType<GameStartPortalManager>();
+        if (portalManager != null)
+        {
+            portalManager.OnPlayButtonClicked();
+        }
     }
 
     public void PauseGame()

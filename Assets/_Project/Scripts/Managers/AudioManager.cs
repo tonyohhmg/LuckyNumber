@@ -12,7 +12,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip ambientMusicClip;
     [SerializeField] private AudioClip absorbItemClip;
     [SerializeField] private AudioClip overloadClip;
-    [SerializeField] private AudioClip portalTriggerClip; // Added portal trigger clip
+    [SerializeField] private AudioClip portalTriggerClip;
+    [SerializeField] private AudioClip portalSpawnClip;
+    
+    [Header("UI Audio Clips")] // <-- NEW
+    [SerializeField] private AudioClip buttonHoverClip; // <-- NEW
 
     private void Awake()
     {
@@ -65,6 +69,23 @@ public class AudioManager : MonoBehaviour
         if (sfxAudioSource != null && portalTriggerClip != null)
         {
             sfxAudioSource.PlayOneShot(portalTriggerClip);
+        }
+    }
+
+    public void PlayPortalSpawnSound()
+    {
+        if (sfxAudioSource != null && portalSpawnClip != null)
+        {
+            sfxAudioSource.PlayOneShot(portalSpawnClip);
+        }
+    }
+
+    // --- NEW METHOD ---
+    public void PlayButtonHoverSound()
+    {
+        if (sfxAudioSource != null && buttonHoverClip != null)
+        {
+            sfxAudioSource.PlayOneShot(buttonHoverClip);
         }
     }
 }

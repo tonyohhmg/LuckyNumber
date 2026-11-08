@@ -1,0 +1,135 @@
+.menu-root {
+    flex-grow: 1;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: rgb(3, 7, 16);
+    backdrop-filter: blur(4);
+    background-image: url("project://database/Assets/_Project/Art/background.png?fileID=2800000&guid=cf26f2120108b1940aa3a485b7c9de15&type=3#background");
+}
+
+.menu-container {
+    background-color: rgba(255, 255, 255, 0);
+    border-color: rgba(165, 242, 243, 0.25);
+    border-width: 1px;
+    border-radius: 24px;
+    padding: 60px 80px;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    right: auto;
+    position: relative;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    left: 140px;
+    padding-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+
+.game-title-logo {
+    width: 200px;
+    height: 82px;
+    -unity-background-scale-mode: scale-to-fit;
+    margin-bottom: 32px;
+    background-image: url("project://database/Assets/_Project/Art/logo.svg?fileID=7388822144124034973&guid=4c95fa90ba4566b469072027252449f7&type=3#logo");
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 1;
+}
+
+.divider {
+    background-image: url("project://database/Assets/_Project/Art/divider.svg?fileID=7388822144124034973&guid=fda28bf8ffc2cb449998fd286a9d3b52&type=3#divider");
+    height: 16.97px;
+    width: 250px;
+}
+
+.game-subtitle {
+    font-size: 18px;
+    color: rgb(165, 242, 243);
+    letter-spacing: 3px;
+    margin-bottom: 48px;
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Regular.ttf?fileID=12800000&guid=b216ab5c5d76f8043a9afa13090ae148&type=3#Overpass-Regular");
+    margin-top: 24px;
+}
+
+.menu-button {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    border-radius: 0;
+    height: 50px;
+    width: auto;
+    margin-bottom: 32px;
+    padding: 0;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    -unity-text-align: upper-center;
+    picking-mode: position; 
+}
+
+.menu-button > * {
+    picking-mode: ignore;
+}
+
+.text-group {
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.button-text {
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    -unity-font-style: normal;
+    letter-spacing: 4px;
+    transition-property: color;
+    transition-duration: 0.2s;
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Medium.ttf?fileID=12800000&guid=a4d0cc1796036f04c8eac4fbc86455a6&type=3#Overpass-Medium");
+    -unity-text-align: middle-center;
+}
+
+.button-underline {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    height: 2px;
+    width: 0%;
+    background-color: rgb(255, 255, 255);
+    transition-property: width, translate;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
+    translate: -50% 0;
+}
+
+.menu-button:hover .button-underline {
+    width: 100%;
+}
+
+.menu-button:active .button-text {
+    color: rgb(170, 180, 190);
+    scale: 0.97;
+}
+
+.controls-hint {
+    margin-top: 20px;
+    font-size: 16px;
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Regular.ttf?fileID=12800000&guid=b216ab5c5d76f8043a9afa13090ae148&type=3#Overpass-Regular");
+}
+
+.hint-text {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 2px;
+}

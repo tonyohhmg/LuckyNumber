@@ -2,11 +2,12 @@
     flex-grow: 1;
     justify-content: center;
     align-items: center;
-    background-color: rgba(3, 7, 14, 0.8);
+    background-color: rgba(3, 7, 16, 0.863);
+    backdrop-filter: blur(4);
 }
 
 .pause-container {
-    background-color: rgba(255, 255, 255, 0.04);
+    background-color: rgba(3, 7, 16, 0);
     border-color: rgba(165, 242, 243, 0.25);
     border-width: 1px;
     border-radius: 20px;
@@ -14,6 +15,14 @@
     align-items: center;
     width: 460px;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .pause-title {
@@ -27,30 +36,62 @@
     -unity-text-align: middle-left;
 }
 
-.pause-button {
-    background-color: rgba(255, 255, 255, 0.03);
-    border-color: rgba(165, 242, 243, 0.3);
-    border-width: 1.5px;
-    border-radius: 12px;
-    color: rgb(255, 255, 255);
-    font-size: 18px;
-    -unity-font-style: bold;
-    padding: 16px 50px;
-    letter-spacing: 4px;
-    width: 100%;
-    margin-bottom: 24px;
-    transition-duration: 0.3s;
-    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Bold.ttf?fileID=12800000&guid=03df7106d03eff243a35ba1fed28ab56&type=3#Overpass-Bold");
-    -unity-text-align: middle-center;
+.menu-button {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    border-radius: 0;
+    height: 50px;
+    width: auto;
+    margin-bottom: 32px;
+    padding: 0;
     align-self: center;
     align-items: center;
-    padding-top: 16px;
-    height: auto;
-    padding-bottom: 12px;
+    justify-content: center;
+    -unity-text-align: upper-center;
+    picking-mode: position; 
 }
 
-.pause-button:hover {
-    background-color: rgba(165, 242, 243, 0.2);
-    border-color: rgb(165, 242, 243);
-    box-shadow: 0 0 15px rgba(165, 242, 243, 0.3);
+.menu-button > * {
+    picking-mode: ignore;
+}
+
+.text-group {
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.button-text {
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    -unity-font-style: normal;
+    letter-spacing: 4px;
+    transition-property: color;
+    transition-duration: 0.2s;
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Medium.ttf?fileID=12800000&guid=a4d0cc1796036f04c8eac4fbc86455a6&type=3#Overpass-Medium");
+    -unity-text-align: middle-center;
+}
+
+.button-underline {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    height: 2px;
+    width: 0%;
+    background-color: rgb(255, 255, 255);
+    transition-property: width, translate;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
+    translate: -50% 0;
+}
+
+.menu-button:hover .button-underline {
+    width: 100%;
+}
+
+.menu-button:active .button-text {
+    color: rgb(170, 180, 190);
+    scale: 0.97;
 }

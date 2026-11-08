@@ -6,24 +6,87 @@
 }
 
 .indicator-pill {
-    background-color: rgb(9, 13, 14);
-    border-color: rgba(0, 229, 255, 0.4);
-    border-width: 2px;
-    border-radius: 12px;
-    padding: 12px 24px;
+    background-color: rgba(255, 255, 255, 0.039);
+    border-color: rgba(127, 189, 250, 0.35);
+    border-width: 1.5px;
+    border-radius: 16px;
+    padding: 16px 24px;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(4);
-    border-left-color: rgb(27, 38, 41);
-    border-right-color: rgb(27, 38, 41);
-    border-top-color: rgb(27, 38, 41);
-    border-bottom-color: rgb(27, 38, 41);
+    box-shadow: 0 0 25px rgba(127, 189, 250, 0.08);
+    backdrop-filter: blur(4px);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    -unity-text-align: upper-center;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 
-.mass-text {
-    font-size: 28px;
+.hud-header {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.549);
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+    -unity-font-style: bold;
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Regular.ttf?fileID=12800000&guid=b216ab5c5d76f8043a9afa13090ae148&type=3#Overpass-Regular");
+    height: 16px;
+    -unity-text-align: middle-left;
+}
+
+.weight-row {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0;
+    align-self: center;
+    justify-content: center;
+    align-content: center;
+    padding-left: 4px;
+}
+
+.current-weight-text {
+    font-size: 32px;
     color: rgb(255, 255, 255);
     -unity-font-style: bold;
     letter-spacing: 2px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Bold.ttf?fileID=12800000&guid=03df7106d03eff243a35ba1fed28ab56&type=3#Overpass-Bold");
+    height: 32px;
+    -unity-text-align: middle-right;
+    padding-bottom: 0;
+}
+
+.weight-separator {
+    font-size: 32px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-left: 0;
+    margin-right: 0;
+    -unity-text-align: middle-center;
+    align-self: center;
+    padding-bottom: 6px;
+    height: 32px;
+}
+
+.target-weight-text {
+    font-size: 32px;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Regular.ttf?fileID=12800000&guid=b216ab5c5d76f8043a9afa13090ae148&type=3#Overpass-Regular");
+    height: 32px;
+    -unity-text-align: middle-left;
+    padding-top: 8px;
+}
+
+.echoes-label {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.549);
+    letter-spacing: 2px;
+    -unity-font-style: bold;
+    height: 16px;
+    -unity-text-align: middle-left;
+    margin-top: 8px;
 }

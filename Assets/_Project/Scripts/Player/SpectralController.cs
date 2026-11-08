@@ -62,19 +62,39 @@ public class SpectralController : MonoBehaviour
     private void Update()
     {
         Keyboard kb = Keyboard.current;
-        if (kb == null) return;
+        Gamepad pad = Gamepad.current;
+
+        // If neither keyboard nor gamepad is available, skip input
+        if (kb == null && pad == null) return;
 
         float moveX = 0f;
         float moveZ = 0f;
         float moveY = 0f;
 
-        if (kb.aKey.isPressed || kb.leftArrowKey.isPressed) moveX = -1f;
-        if (kb.dKey.isPressed || kb.rightArrowKey.isPressed) moveX = 1f;
-        if (kb.sKey.isPressed || kb.downArrowKey.isPressed) moveZ = -1f;
-        if (kb.wKey.isPressed || kb.upArrowKey.isPressed) moveZ = 1f;
+        // 1. Keyboard Input
+        if (kb != null)
+        {
+            if (kb.aKey.isPressed || kb.leftArrowKey.isPressed) moveX = -1f;
+            if (kb.dKey.isPressed || kb.rightArrowKey.isPressed) moveX = 1f;
+            if (kb.sKey.isPressed || kb.downArrowKey.isPressed) moveZ = -1f;
+            if (kb.wKey.isPressed || kb.upArrowKey.isPressed) moveZ = 1f;
 
-        if (kb.spaceKey.isPressed) moveY = 1f;
-        if (kb.leftShiftKey.isPressed) moveY = -1f;
+            if (kb.spaceKey.isPressed) moveY = 1f;
+            if (kb.leftShiftKey.isPressed) moveY = -1f;
+        }
+
+        // 2. Gamepad / Controller Input
+        if (pad != null)
+        {
+            // Read left analog stick for horizontal plane movement
+            Vector2 stickInput = pad.leftStick.ReadValue();
+            if (Mathf.Abs(stickInput.x) > 0.1f) moveX = stickInput.x;
+            if (Mathf.Abs(stickInput.y) > 0.1f) moveZ = stickInput.y;
+
+            // Vertical floating controls (Triggers or Face buttons)
+            if (pad.rightTrigger.isPressed || pad.buttonNorth.isPressed) moveY = 1f;  // Rise (R2 / Y / Triangle)
+            if (pad.leftTrigger.isPressed || pad.buttonSouth.isPressed) moveY = -1f; // Lower (L2 / A / Cross)
+        }
 
         Vector3 moveDir = new Vector3(moveX, 0f, moveZ).normalized;
 
