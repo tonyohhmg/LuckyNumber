@@ -13,8 +13,8 @@
     align-items: flex-start;
     justify-content: center;
     position: absolute;
-    bottom: 60%;
-    left: 55%;
+    bottom: 62%;
+    left: 58%;
     border-left-color: rgba(255, 255, 255, 0);
     border-right-color: rgba(255, 255, 255, 0);
     border-top-color: rgba(255, 255, 255, 0);

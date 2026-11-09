@@ -35,7 +35,7 @@
 
 .game-title-logo {
     width: 200px;
-    height: 82px;
+    height: 82.12px;
     -unity-background-scale-mode: scale-to-fit;
     margin-bottom: 32px;
     background-image: url("project://database/Assets/_Project/Art/logo.svg?fileID=7388822144124034973&guid=4c95fa90ba4566b469072027252449f7&type=3#logo");
@@ -74,7 +74,7 @@
     align-items: center;
     justify-content: center;
     -unity-text-align: upper-center;
-    picking-mode: position; 
+    picking-mode: position;
 }
 
 .menu-button > * {
@@ -122,14 +122,151 @@
     scale: 0.97;
 }
 
-.controls-hint {
-    margin-top: 20px;
-    font-size: 16px;
-    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Regular.ttf?fileID=12800000&guid=b216ab5c5d76f8043a9afa13090ae148&type=3#Overpass-Regular");
+.controls-container {
+    margin-top: 24px;
+    align-items: center;
+    justify-content: center;
 }
 
-.hint-text {
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.4);
-    letter-spacing: 2px;
+.control-group {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    align-self: flex-end;
+}
+
+.control-item {
+    flex-direction: column;
+    align-items: center;
+    margin-right: 12px;
+    margin-left: 12px;
+}
+
+.wasd-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wasd-top-row {
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+
+.wasd-bottom-row {
+    flex-direction: row;
+    justify-content: center;
+}
+
+.keycap-group {
+    flex-direction: row;
+    align-items: center;
+}
+
+.keycap {
+    background-color: rgba(255, 255, 255, 0);
+    border-color: rgba(165, 242, 243, 0.4);
+    border-width: 1px;
+    border-radius: 6px;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    padding: 4px 8px;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Medium.ttf?fileID=12800000&guid=a4d0cc1796036f04c8eac4fbc86455a6&type=3#Overpass-Medium");
+    margin-right: 3px;
+    margin-left: 3px;
+    min-width: 24px;
+    min-height: 24px;
+    padding-top: 6px;
+    width: 32px;
+    height: 32px;
+    border-left-color: rgb(56, 60, 67);
+    border-right-color: rgb(56, 60, 67);
+    border-top-color: rgb(56, 60, 67);
+    border-bottom-color: rgb(56, 60, 67);
+}
+
+.wide-keycap {
+    background-color: rgba(255, 255, 255, 0);
+    border-color: rgba(165, 242, 243, 0.4);
+    border-width: 1px;
+    border-radius: 6px;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    padding: 4px 8px;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Medium.ttf?fileID=12800000&guid=a4d0cc1796036f04c8eac4fbc86455a6&type=3#Overpass-Medium");
+    margin-right: 3px;
+    margin-left: 3px;
+    min-width: 24px;
+    min-height: 24px;
+    padding-top: 6px;
+    height: 32px;
+    border-left-color: rgb(56, 60, 67);
+    border-right-color: rgb(56, 60, 67);
+    border-top-color: rgb(56, 60, 67);
+    border-bottom-color: rgb(56, 60, 67);
+}
+
+.icon-keycap {
+    background-color: rgba(255, 255, 255, 0);
+    border-color: rgba(165, 242, 243, 0.4);
+    border-width: 1px;
+    border-radius: 6px;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    padding: 4px 8px;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Medium.ttf?fileID=12800000&guid=a4d0cc1796036f04c8eac4fbc86455a6&type=3#Overpass-Medium");
+    margin-right: 3px;
+    margin-left: 3px;
+    min-width: 24px;
+    min-height: 24px;
+    padding-top: 6px;
+    width: 32px;
+    height: 32px;
+    border-left-color: rgb(56, 60, 67);
+    border-right-color: rgb(56, 60, 67);
+    border-top-color: rgb(56, 60, 67);
+    border-bottom-color: rgb(56, 60, 67);
+}
+
+.control-label {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.706);
+    letter-spacing: 1px;
+    margin-left: 0;
+    margin-right: 0;
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Regular.ttf?fileID=12800000&guid=b216ab5c5d76f8043a9afa13090ae148&type=3#Overpass-Regular");
+    -unity-text-align: upper-center;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin-top: 8px;
+}
+
+.l-stick-icon {
+    background-image: url("project://database/Assets/_Project/Art/right-stick.svg?fileID=7388822144124034973&guid=d5b455c921bd62a478dfe744f661d18b&type=3#right-stick");
+    width: 32px;
+    height: 26px;
+}
+
+.r-stick-icon {
+    background-image: url("project://database/Assets/_Project/Art/left-stick.svg?fileID=7388822144124034973&guid=d1bb442a393e49843941ad20f9737dad&type=3#left-stick");
+    width: 32px;
+    height: 26px;
+}
+
+.l-trigger-icon {
+    background-image: url("project://database/Assets/_Project/Art/left-trigger.svg?fileID=7388822144124034973&guid=2407f520efca9434c9003ceb2c25db42&type=3#left-trigger");
+    width: 32px;
+    height: 26px;
+}
+
+.r-trigger-icon {
+    background-image: url("project://database/Assets/_Project/Art/right-trigger.svg?fileID=7388822144124034973&guid=b38cac5b1a532724baf1121c4572f878&type=3#right-trigger");
+    width: 32px;
+    height: 26px;
 }

@@ -11,8 +11,60 @@
                     <ui:VisualElement class="button-underline"/>
                 </ui:VisualElement>
             </ui:Button>
-            <ui:VisualElement class="controls-hint">
-                <ui:Label text="WASD / Move   |   Space / Absorb   |   E / Drop" class="hint-text"/>
+            <ui:VisualElement name="ControlsContainer" class="controls-container">
+                <ui:VisualElement name="KeyboardControls" class="control-group" style="display: flex;">
+                    <ui:VisualElement class="control-item">
+                        <ui:VisualElement class="wasd-container">
+                            <ui:VisualElement class="wasd-top-row">
+                                <ui:Label text="W" class="keycap"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement class="wasd-bottom-row">
+                                <ui:Label text="A" class="keycap"/>
+                                <ui:Label text="S" class="keycap"/>
+                                <ui:Label text="D" class="keycap"/>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:Label text="Move" class="control-label"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="control-item">
+                        <ui:VisualElement class="keycap-group">
+                            <ui:Label text="SPACE" class="wide-keycap"/>
+                        </ui:VisualElement>
+                        <ui:Label text="Rise" class="control-label"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="control-item">
+                        <ui:VisualElement class="keycap-group">
+                            <ui:Label text="L-SHIFT" class="wide-keycap"/>
+                        </ui:VisualElement>
+                        <ui:Label text="Fall" class="control-label"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="GamepadControls" class="control-group" style="display: none;">
+                    <ui:VisualElement class="control-item">
+                        <ui:VisualElement class="keycap-group">
+                            <ui:Image class="l-stick-icon"/>
+                        </ui:VisualElement>
+                        <ui:Label text="Move" class="control-label"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="control-item">
+                        <ui:VisualElement class="keycap-group">
+                            <ui:Image class="r-stick-icon"/>
+                        </ui:VisualElement>
+                        <ui:Label text="Look" class="control-label"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="control-item">
+                        <ui:VisualElement class="keycap-group">
+                            <ui:Image class="l-trigger-icon"/>
+                        </ui:VisualElement>
+                        <ui:Label text="Fall" class="control-label"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="control-item">
+                        <ui:VisualElement class="keycap-group">
+                            <ui:Image class="r-trigger-icon"/>
+                        </ui:VisualElement>
+                        <ui:Label text="Rise" class="control-label"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

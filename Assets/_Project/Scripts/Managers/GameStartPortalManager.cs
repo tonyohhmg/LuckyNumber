@@ -1,6 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem; // Using the new Input System package
 using System.Collections;
-using UnityEngine.InputSystem;
 
 public class GameStartPortalManager : MonoBehaviour
 {
@@ -16,59 +16,58 @@ public class GameStartPortalManager : MonoBehaviour
     [SerializeField] private float ghostRiseDuration = 0.6f;    // Time for ghost to emerge
     [SerializeField] private float riseHeight = 1.5f;           // How high up the ghost rises from the ground
 
-    private bool sequenceCompleted = false;
-    private bool portalDisappearing = false;
+    private bool hasStartedMoving = false;
+    private bool sequenceFinished = false;
 
     private void Start()
     {
-        // Ensure the portal starts hidden and scaled to zero at game load
+        // 1. Ensure the portal starts hidden and scaled to zero at game load
         if (startPortalVisuals != null)
         {
             startPortalVisuals.transform.localScale = Vector3.zero;
             startPortalVisuals.SetActive(false);
         }
 
-        // Ensure the ghost player starts hidden so they can emerge from the portal
+        // 2. Ensure the ghost player starts hidden so they can emerge from the portal
         if (ghostPlayer != null)
         {
             ghostPlayer.SetActive(false);
         }
+
+        // 3. Automatically trigger the spawn sequence as soon as Level 1 loads!
+        TriggerStartSequence();
     }
 
     private void Update()
     {
-        // Once the spawn sequence is fully finished, watch for any movement key press (W, A, S, D, or Arrow keys)
-        if (sequenceCompleted && !portalDisappearing && ghostPlayer != null && ghostPlayer.activeSelf)
+        // Check if the spawn sequence is done and player hits any movement key to shrink the portal away
+        if (sequenceFinished && !hasStartedMoving)
         {
             Keyboard kb = Keyboard.current;
             if (kb != null)
             {
-                bool pressedW = kb.wKey.wasPressedThisFrame || kb.upArrowKey.wasPressedThisFrame;
-                bool pressedS = kb.sKey.wasPressedThisFrame || kb.downArrowKey.wasPressedThisFrame;
-                bool pressedA = kb.aKey.wasPressedThisFrame || kb.leftArrowKey.wasPressedThisFrame;
-                bool pressedD = kb.dKey.wasPressedThisFrame || kb.rightArrowKey.wasPressedThisFrame;
-
-                if (pressedW || pressedS || pressedA || pressedD)
+                if (kb.wKey.wasPressedThisFrame || kb.aKey.wasPressedThisFrame || 
+                    kb.sKey.wasPressedThisFrame || kb.dKey.wasPressedThisFrame ||
+                    kb.upArrowKey.wasPressedThisFrame || kb.downArrowKey.wasPressedThisFrame ||
+                    kb.leftArrowKey.wasPressedThisFrame || kb.rightArrowKey.wasPressedThisFrame ||
+                    kb.spaceKey.wasPressedThisFrame)
                 {
-                    StartCoroutine(ReversePortalSequenceRoutine());
+                    hasStartedMoving = true;
+                    StartCoroutine(FadeOutPortalRoutine());
                 }
             }
         }
     }
 
-    /// <summary>
-    /// Called automatically by GameManager when Play is clicked.
-    /// </summary>
-    public void OnPlayButtonClicked()
+    public void TriggerStartSequence()
     {
-        sequenceCompleted = false;
-        portalDisappearing = false;
+        StopAllCoroutines();
         StartCoroutine(GameStartSequenceRoutine());
     }
 
     private IEnumerator GameStartSequenceRoutine()
     {
-        // Play sound effect when the portal and ghost spawn sequence starts
+        // Play the portal spawn sound via AudioManager
         AudioManager.Instance?.PlayPortalSpawnSound();
 
         // 1. Activate and scale the StartPortal outward from 0 to 1
@@ -85,7 +84,7 @@ public class GameStartPortalManager : MonoBehaviour
             Vector3 startPos = targetPos - new Vector3(0f, riseHeight, 0f);
 
             ghostPlayer.transform.position = startPos;
-            ghostPlayer.SetActive(true);
+            ghostPlayer.SetActive(true); // Ghost becomes active and visible here!
 
             float elapsed = 0f;
             while (elapsed < ghostRiseDuration)
@@ -101,28 +100,12 @@ public class GameStartPortalManager : MonoBehaviour
             ghostPlayer.transform.position = targetPos;
         }
 
-        // Mark sequence as complete so we can start listening for player movement input
-        sequenceCompleted = true;
+        sequenceFinished = true;
     }
 
-    private IEnumerator ReversePortalSequenceRoutine()
-    {
-        portalDisappearing = true;
-
-        // Scale the StartPortal inward from 1 back down to 0
-        if (startPortalVisuals != null)
-        {
-            yield return StartCoroutine(ScalePortalRoutine(Vector3.one, Vector3.zero));
-            startPortalVisuals.SetActive(false);
-        }
-
-        Debug.Log("[GameStartPortalManager] Player moved; portal disappeared.");
-    }
-
-    private IEnumerator ScalePortalRoutine(Vector3 startScale, Vector3 targetScale)
+    private IEnumerator ScalePortalRoutine(Vector3 fromScale, Vector3 toScale)
     {
         float elapsed = 0f;
-
         while (elapsed < portalScaleDuration)
         {
             elapsed += Time.deltaTime;
@@ -131,15 +114,25 @@ public class GameStartPortalManager : MonoBehaviour
 
             if (startPortalVisuals != null)
             {
-                startPortalVisuals.transform.localScale = Vector3.Lerp(startScale, targetScale, smoothT);
+                startPortalVisuals.transform.localScale = Vector3.Lerp(fromScale, toScale, smoothT);
             }
-
             yield return null;
         }
 
         if (startPortalVisuals != null)
         {
-            startPortalVisuals.transform.localScale = targetScale;
+            startPortalVisuals.transform.localScale = toScale;
+        }
+    }
+
+    private IEnumerator FadeOutPortalRoutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        yield return StartCoroutine(ScalePortalRoutine(Vector3.one, Vector3.zero));
+        
+        if (startPortalVisuals != null)
+        {
+            startPortalVisuals.SetActive(false);
         }
     }
 }

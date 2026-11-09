@@ -1,23 +1,26 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [Header("UI Document Containers (GameObjects)")]
-    [SerializeField] private GameObject mainMenuContainer;
-    [SerializeField] private GameObject pauseMenuContainer;
-    [SerializeField] private GameObject gameOverContainer;
-    [SerializeField] private GameObject gameWonContainer;
+    [Header("UI Containers / Documents (Gameplay Overlays)")]
+    [SerializeField] private GameObject gameOverUIContainer; 
+    [SerializeField] private GameObject gameWonUIContainer;  
+    [SerializeField] private GameObject pauseMenuUIContainer;
 
-    [Header("Gameplay Scripts to Toggle")]
-    [SerializeField] private MonoBehaviour playerControllerScript;
+    [Header("Scene Settings")]
+    [SerializeField] private string mainMenuSceneName = "MainMenuScene"; // Exact name of your Main Menu scene
+
+    [Header("Scripts to Enable/Disable")]
+    [SerializeField] private MonoBehaviour playerControllerScript; 
 
     private bool isPaused = false;
-    private bool isInMainMenu = true;
+    private bool isLevelWonOrLost = false;
+    private bool isSpawning = false;
 
     private void Awake()
     {
@@ -41,115 +44,132 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    private void Start()
-    {
-        InitializeGameState();
-
-        if (Gamepad.current != null)
-        {
-            Debug.Log($"[InputSystem] Gamepad detected: {Gamepad.current.displayName}");
-        }
-        else
-        {
-            Debug.LogWarning("[InputSystem] No gamepad currently detected. Check connection or plug it in.");
-        }
-    }
-
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        InitializeGameState();
-    }
+        isLevelWonOrLost = false;
 
-    private void InitializeGameState()
-    {
-        HideAllUIOverlays();
+        // 1. FIND UI containers FIRST so GameManager has the references immediately
+        FindGameplayUIContainers();
 
-        if (mainMenuContainer != null)
+        // 2. THEN force hide and completely reset all UI containers
+        HideAndResetAllUIOverlays();
+
+        // 3. If we loaded into a gameplay scene, start spawn routine
+        if (scene.name != mainMenuSceneName)
         {
-            mainMenuContainer.SetActive(true);
-            isInMainMenu = true;
-            Time.timeScale = 0f;
-            if (playerControllerScript != null) playerControllerScript.enabled = false;
-            
-            BindMainMenuButtons();
-            EnableUIContainerInput(mainMenuContainer, true);
+            SoulMassSystem massSystem = FindAnyObjectByType<SoulMassSystem>();
+            if (massSystem != null)
+            {
+                massSystem.ResetToBaseline();
+            }
+
+            GameStartPortalManager portalManager = FindAnyObjectByType<GameStartPortalManager>();
+            if (portalManager != null)
+            {
+                portalManager.TriggerStartSequence();
+            }
+
+            StartCoroutine(GameplaySpawnSequenceRoutine());
         }
         else
         {
-            isInMainMenu = false;
-            Time.timeScale = 1f;
-            if (playerControllerScript != null) playerControllerScript.enabled = true;
+            isSpawning = false;
         }
+    }
 
+    private void HideAndResetAllUIOverlays()
+    {
+        Time.timeScale = 1f;
         isPaused = false;
-    }
 
-    private void Update()
-    {
-        if (isInMainMenu) return;
-
-        Keyboard kb = Keyboard.current;
-        if (kb == null) return;
-
-        if (kb.escapeKey.wasPressedThisFrame || kb.pKey.wasPressedThisFrame)
+        // Disable Game Over UI & reset root visual element display if using UI Toolkit
+        if (gameOverUIContainer != null) 
         {
-            if (isPaused)
+            var doc = gameOverUIContainer.GetComponent<UIDocument>();
+            if (doc != null && doc.rootVisualElement != null)
             {
-                ResumeGame();
+                doc.rootVisualElement.style.display = DisplayStyle.None;
             }
-            else
+            gameOverUIContainer.SetActive(false);
+        }
+
+        // Disable Game Won UI & reset root visual element display if using UI Toolkit
+        if (gameWonUIContainer != null) 
+        {
+            var doc = gameWonUIContainer.GetComponent<UIDocument>();
+            if (doc != null && doc.rootVisualElement != null)
             {
-                PauseGame();
+                doc.rootVisualElement.style.display = DisplayStyle.None;
             }
+            gameWonUIContainer.SetActive(false);
+        }
+
+        // Disable Pause Menu UI & reset root visual element display if using UI Toolkit
+        if (pauseMenuUIContainer != null) 
+        {
+            var doc = pauseMenuUIContainer.GetComponent<UIDocument>();
+            if (doc != null && doc.rootVisualElement != null)
+            {
+                doc.rootVisualElement.style.display = DisplayStyle.None;
+            }
+            pauseMenuUIContainer.SetActive(false);
         }
     }
 
-    // --- UI Helpers ---
-    private void HideAllUIOverlays()
+    private void FindGameplayUIContainers()
     {
-        if (mainMenuContainer != null) { mainMenuContainer.SetActive(false); EnableUIContainerInput(mainMenuContainer, false); }
-        if (pauseMenuContainer != null) { pauseMenuContainer.SetActive(false); EnableUIContainerInput(pauseMenuContainer, false); }
-        if (gameOverContainer != null) { gameOverContainer.SetActive(false); EnableUIContainerInput(gameOverContainer, false); }
-        if (gameWonContainer != null) { gameWonContainer.SetActive(false); EnableUIContainerInput(gameWonContainer, false); }
+        if (gameOverUIContainer == null)
+        {
+            GameObject go = GameObject.Find("GameOverContainer");
+            if (go != null) gameOverUIContainer = go;
+        }
+        if (gameWonUIContainer == null)
+        {
+            GameObject go = GameObject.Find("GameWonContainer");
+            if (go != null) gameWonUIContainer = go;
+        }
+        if (pauseMenuUIContainer == null)
+        {
+            GameObject go = GameObject.Find("PauseMenuContainer");
+            if (go != null) pauseMenuUIContainer = go;
+        }
     }
 
-    private void EnableUIContainerInput(GameObject container, bool enable)
+    private void BindPauseMenuButtons()
     {
-        var doc = container.GetComponent<UIDocument>();
+        if (pauseMenuUIContainer == null) return;
+        var doc = pauseMenuUIContainer.GetComponent<UIDocument>();
         if (doc != null && doc.rootVisualElement != null)
         {
-            doc.rootVisualElement.pickingMode = enable ? PickingMode.Position : PickingMode.Ignore;
-        }
-    }
+            var resumeBtn = doc.rootVisualElement.Q<Button>("ResumeButton");
+            var restartBtn = doc.rootVisualElement.Q<Button>("RestartButton");
+            var menuBtn = doc.rootVisualElement.Q<Button>("MenuButton");
 
-    // --- Button Binding Methods ---
-    private void BindMainMenuButtons()
-    {
-        if (mainMenuContainer == null) return;
-        var doc = mainMenuContainer.GetComponent<UIDocument>();
-        if (doc != null && doc.rootVisualElement != null)
-        {
-            var playBtn = doc.rootVisualElement.Q<Button>("PlayButton");
-            if (playBtn != null)
-            {
-                // Unregister first to avoid duplicate bindings
-                playBtn.clicked -= StartGame;
-                playBtn.clicked += StartGame;
-
-                // --- RESTORED: Hover sound listener ---
-                playBtn.UnregisterCallback<PointerEnterEvent>(OnPlayButtonHover);
-                playBtn.RegisterCallback<PointerEnterEvent>(OnPlayButtonHover);
-
-                Debug.Log("[GameManager] PlayButton successfully bound with click and hover audio!");
+            if (resumeBtn != null) 
+            { 
+                resumeBtn.clicked -= ResumeGame; 
+                resumeBtn.clicked += ResumeGame; 
+                resumeBtn.UnregisterCallback<PointerEnterEvent>(OnButtonHover);
+                resumeBtn.RegisterCallback<PointerEnterEvent>(OnButtonHover);
             }
-            else
-            {
-                Debug.LogWarning("[GameManager] PlayButton could not be found inside the Main Menu UIDocument!");
+            if (restartBtn != null) 
+            { 
+                restartBtn.clicked -= RestartLevel; 
+                restartBtn.clicked += RestartLevel; 
+                restartBtn.UnregisterCallback<PointerEnterEvent>(OnButtonHover);
+                restartBtn.RegisterCallback<PointerEnterEvent>(OnButtonHover);
+            }
+            if (menuBtn != null) 
+            { 
+                menuBtn.clicked -= GoToMainMenu; 
+                menuBtn.clicked += GoToMainMenu; 
+                menuBtn.UnregisterCallback<PointerEnterEvent>(OnButtonHover);
+                menuBtn.RegisterCallback<PointerEnterEvent>(OnButtonHover);
             }
         }
     }
 
-    private void OnPlayButtonHover(PointerEnterEvent evt)
+    private void OnButtonHover(PointerEnterEvent evt)
     {
         if (AudioManager.Instance != null)
         {
@@ -157,66 +177,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void BindPauseMenuButtons()
-{
-    if (pauseMenuContainer == null) return;
-    var doc = pauseMenuContainer.GetComponent<UIDocument>();
-    if (doc != null && doc.rootVisualElement != null)
-    {
-        var resumeBtn = doc.rootVisualElement.Q<Button>("ResumeButton");
-        var restartBtn = doc.rootVisualElement.Q<Button>("RestartButton");
-        var menuBtn = doc.rootVisualElement.Q<Button>("MenuButton");
-
-        if (resumeBtn != null) 
-        { 
-            resumeBtn.clicked -= ResumeGame; 
-            resumeBtn.clicked += ResumeGame; 
-            resumeBtn.UnregisterCallback<PointerEnterEvent>(OnPlayButtonHover);
-            resumeBtn.RegisterCallback<PointerEnterEvent>(OnPlayButtonHover);
-        }
-        if (restartBtn != null) 
-        { 
-            restartBtn.clicked -= RestartLevel; 
-            restartBtn.clicked += RestartLevel; 
-            restartBtn.UnregisterCallback<PointerEnterEvent>(OnPlayButtonHover);
-            restartBtn.RegisterCallback<PointerEnterEvent>(OnPlayButtonHover);
-        }
-        if (menuBtn != null) 
-        { 
-            menuBtn.clicked -= GoToMainMenu; 
-            menuBtn.clicked += GoToMainMenu; 
-            menuBtn.UnregisterCallback<PointerEnterEvent>(OnPlayButtonHover);
-            menuBtn.RegisterCallback<PointerEnterEvent>(OnPlayButtonHover);
-        }
-    }
-}
-
-    private void BindGameOverButtons()
-    {
-        if (gameOverContainer == null) return;
-        var doc = gameOverContainer.GetComponent<UIDocument>();
-        if (doc != null && doc.rootVisualElement != null)
-        {
-            var restartBtn = doc.rootVisualElement.Q<Button>("GameOverRestartButton");
-            if (restartBtn != null) 
-            { 
-                restartBtn.clicked -= RestartLevel; 
-                restartBtn.clicked += RestartLevel; 
-            }
-        }
-    }
-
     private void BindGameWonButtons()
     {
-        if (gameWonContainer == null) return;
-        var doc = gameWonContainer.GetComponent<UIDocument>();
+        if (gameWonUIContainer == null) return;
+        var doc = gameWonUIContainer.GetComponent<UIDocument>();
         if (doc != null && doc.rootVisualElement != null)
         {
-            var restartBtn = doc.rootVisualElement.Q<Button>("GameWonRestartButton");
-            if (restartBtn != null) 
+            var playAgainBtn = doc.rootVisualElement.Q<Button>("GameWonRestartButton");
+            if (playAgainBtn != null) 
             { 
-                restartBtn.clicked -= RestartLevel; 
-                restartBtn.clicked += RestartLevel; 
+                playAgainBtn.clicked -= GoToMainMenu; 
+                playAgainBtn.clicked += GoToMainMenu; 
             }
 
             var nextBtn = doc.rootVisualElement.Q<Button>("NextLevelButton");
@@ -228,42 +199,115 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // --- Game State Actions ---
-    public void StartGame()
+    private void BindGameOverButtons()
     {
-        Debug.Log("[GameManager] StartGame() triggered!");
-        isInMainMenu = false;
-        
-        if (mainMenuContainer != null) 
+        if (gameOverUIContainer == null) return;
+        var doc = gameOverUIContainer.GetComponent<UIDocument>();
+        if (doc != null && doc.rootVisualElement != null)
         {
-            // This disables the entire Main Menu GameObject (hiding the background image & UI root)
-            mainMenuContainer.SetActive(false);
-            EnableUIContainerInput(mainMenuContainer, false);
+            var restartBtn = doc.rootVisualElement.Q<Button>("GameOverRestartButton");
+            if (restartBtn != null) 
+            { 
+                restartBtn.clicked -= RestartLevel; 
+                restartBtn.clicked += RestartLevel; 
+            }
         }
-        else
+    }
+
+    private IEnumerator GameplaySpawnSequenceRoutine()
+    {
+        isSpawning = true;
+
+        // Search by name first to avoid UnityException if the tag isn't defined yet
+        GameObject portal = GameObject.Find("StartPortal");
+        if (portal == null)
         {
-            Debug.LogWarning("[GameManager] mainMenuContainer reference is missing in the Inspector!");
+            try 
+            {
+                portal = GameObject.FindWithTag("StartPortal");
+            }
+            catch 
+            {
+                // Ignore if tag doesn't exist in Project Settings
+            }
         }
 
-        Time.timeScale = 1f;
-        if (playerControllerScript != null) playerControllerScript.enabled = true;
+        GameObject ghost = playerControllerScript != null ? playerControllerScript.gameObject : null;
 
-        // Trigger portal sequence
-        GameStartPortalManager portalManager = FindAnyObjectByType<GameStartPortalManager>();
-        if (portalManager != null)
+        if (playerControllerScript != null)
         {
-            portalManager.OnPlayButtonClicked();
+            playerControllerScript.enabled = false;
+        }
+
+        if (portal != null)
+        {
+            portal.SetActive(true);
+            portal.transform.localScale = Vector3.zero;
+            
+            float portalDuration = 0.6f;
+            float elapsed = 0f;
+            while (elapsed < portalDuration)
+            {
+                elapsed += Time.deltaTime;
+                float t = Mathf.SmoothStep(0f, 1f, elapsed / portalDuration);
+                portal.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, t);
+                yield return null;
+            }
+            portal.transform.localScale = Vector3.one;
+        }
+
+        if (ghost != null)
+        {
+            Vector3 targetPos = ghost.transform.position;
+            float riseHeight = 1.5f;
+            Vector3 startPos = targetPos - new Vector3(0f, riseHeight, 0f);
+
+            ghost.transform.position = startPos;
+            ghost.SetActive(true);
+
+            float ghostDuration = 0.5f;
+            float elapsed = 0f;
+            while (elapsed < ghostDuration)
+            {
+                elapsed += Time.deltaTime;
+                float t = Mathf.SmoothStep(0f, 1f, elapsed / ghostDuration);
+                ghost.transform.position = Vector3.Lerp(startPos, targetPos, Mathf.SmoothStep(0f, 1f, t));
+                yield return null;
+            }
+
+            ghost.transform.position = targetPos;
+        }
+
+        if (playerControllerScript != null)
+        {
+            playerControllerScript.enabled = true;
+        }
+
+        yield return new WaitForSeconds(0.2f);
+        isSpawning = false;
+    }
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == mainMenuSceneName) return;
+
+        var kb = UnityEngine.InputSystem.Keyboard.current;
+        if (kb == null) return;
+
+        if (kb.escapeKey.wasPressedThisFrame || kb.pKey.wasPressedThisFrame)
+        {
+            if (isPaused) ResumeGame();
+            else PauseGame();
         }
     }
 
     public void PauseGame()
     {
         isPaused = true;
-        if (pauseMenuContainer != null)
+        if (pauseMenuUIContainer != null) 
         {
-            pauseMenuContainer.SetActive(true);
+            pauseMenuUIContainer.SetActive(true);
             BindPauseMenuButtons();
-            EnableUIContainerInput(pauseMenuContainer, true);
         }
         Time.timeScale = 0f;
     }
@@ -271,113 +315,58 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         isPaused = false;
-        if (pauseMenuContainer != null) 
-        {
-            pauseMenuContainer.SetActive(false);
-            EnableUIContainerInput(pauseMenuContainer, false);
-        }
+        if (pauseMenuUIContainer != null) pauseMenuUIContainer.SetActive(false);
         Time.timeScale = 1f;
     }
 
     public void TriggerGameOver()
     {
-        if (gameOverContainer != null)
+        if (isSpawning || isLevelWonOrLost) return;
+        isLevelWonOrLost = true;
+
+        if (gameOverUIContainer != null) 
         {
-            gameOverContainer.SetActive(true);
+            gameOverUIContainer.SetActive(true);
             BindGameOverButtons();
-            EnableUIContainerInput(gameOverContainer, true);
         }
         Time.timeScale = 0f;
     }
 
-    public void CompleteLevel()
+    public void TriggerGameWon()
     {
-        if (gameWonContainer != null)
+        if (isSpawning || isLevelWonOrLost) return;
+        isLevelWonOrLost = true;
+
+        if (gameWonUIContainer != null) 
         {
-            gameWonContainer.SetActive(true);
+            gameWonUIContainer.SetActive(true);
             BindGameWonButtons();
-            EnableUIContainerInput(gameWonContainer, true);
         }
-        Time.timeScale = 0f;
+        Time.timeScale = 0f; 
     }
 
     public void RestartLevel()
     {
-        Debug.Log("[GameManager] Executing Soft Reset (Restart Level)...");
-
-        // 1. Unfreeze time and clear pause/menu flags immediately
-        Time.timeScale = 1f;
-        isPaused = false;
-        isInMainMenu = false;
-
-        // 2. Force-hide all UI overlays and disable their click inputs
-        HideAllUIOverlays();
-
-        // 3. Reset the player's soul mass back to baseline (1.0g)
+        HideAndResetAllUIOverlays();
         SoulMassSystem massSystem = FindAnyObjectByType<SoulMassSystem>();
         if (massSystem != null)
         {
             massSystem.ResetToBaseline();
         }
 
-        // 4. Soft Reset: Teleport player back to the "Respawn" point instead of reloading the scene
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player != null)
-        {
-            // Find the spawn point object tagged "Respawn"
-            GameObject spawnPoint = GameObject.FindWithTag("Respawn");
-            Vector3 resetPos = spawnPoint != null ? spawnPoint.transform.position : new Vector3(0f, 1f, 0f);
-
-            // Safely move the player (handles CharacterController if attached)
-            CharacterController cc = player.GetComponent<CharacterController>();
-            if (cc != null) cc.enabled = false;
-
-            Rigidbody rb = player.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.linearVelocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
-            }
-
-            player.transform.position = resetPos;
-
-            if (cc != null) cc.enabled = true;
-
-            // Ensure movement script is active
-            if (playerControllerScript != null) playerControllerScript.enabled = true;
-
-            Debug.Log($"[GameManager] Player successfully soft-reset to position: {resetPos}");
-        }
-        else
-        {
-            Debug.LogWarning("[GameManager] 'Player' tag not found on player object! Falling back to scene reload.");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void GoToMainMenu()
     {
-        Time.timeScale = 1f;
-        isPaused = false;
-        isInMainMenu = true;
-
-        HideAllUIOverlays();
-
-        if (mainMenuContainer != null) 
-        {
-            mainMenuContainer.SetActive(true);
-            BindMainMenuButtons();
-            EnableUIContainerInput(mainMenuContainer, true);
-        }
+        HideAndResetAllUIOverlays();
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 
     public void LoadNextLevel()
     {
-        Time.timeScale = 1f;
-        isPaused = false;
+        HideAndResetAllUIOverlays();
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-
-        HideAllUIOverlays();
 
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
