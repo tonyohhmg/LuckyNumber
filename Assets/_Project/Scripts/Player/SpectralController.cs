@@ -64,8 +64,28 @@ public class SpectralController : MonoBehaviour
         Keyboard kb = Keyboard.current;
         Gamepad pad = Gamepad.current;
 
-        // If neither keyboard nor gamepad is available, skip input
-        if (kb == null && pad == null) return;
+        // If neither keyboard nor gamepad is available, skip input check
+        if (kb != null || pad != null)
+        {
+            bool dropTriggered = false;
+
+            // 1. Check Keyboard 'Q' key
+            if (kb != null && kb.qKey.wasPressedThisFrame)
+            {
+                dropTriggered = true;
+            }
+
+            // 2. Check Gamepad 'X' button (West button / Square / X)
+            if (pad != null && pad.buttonWest.wasPressedThisFrame)
+            {
+                dropTriggered = true;
+            }
+
+            if (dropTriggered && soulMassSystem != null)
+            {
+                soulMassSystem.DropCurrentItem(); // Ensure this matches your Drop method in SoulMassSystem
+            }
+        }
 
         float moveX = 0f;
         float moveZ = 0f;

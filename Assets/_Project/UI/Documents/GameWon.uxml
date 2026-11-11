@@ -4,7 +4,12 @@
         <ui:VisualElement class="gamewon-container">
             <ui:Label text="EQUILIBRIUM ACHIEVED" class="gamewon-title"/>
             <ui:Label text="You successfully weighed the soul at exactly 21g." class="gamewon-subtitle"/>
-            <ui:Button name="GameWonRestartButton" text="PLAY AGAIN" class="gamewon-button"/>
+            <ui:Button name="GameWonRestartButton" class="menu-button">
+                <ui:VisualElement class="text-group">
+                    <ui:Label text="PLAY AGAIN" class="button-text"/>
+                    <ui:VisualElement class="button-underline"/>
+                </ui:VisualElement>
+            </ui:Button>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

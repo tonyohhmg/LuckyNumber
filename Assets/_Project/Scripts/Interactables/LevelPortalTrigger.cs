@@ -9,6 +9,10 @@ public class LevelPortalTrigger : MonoBehaviour
     [SerializeField] private SoulMassSystem playerSoul; // Drag your player here
     [SerializeField] private GameObject portalVisuals;    // The actual portal particle effect / mesh
 
+    [Header("Level 2 Companion Requirements")]
+    [SerializeField] private bool requireCompanion = false;     // Check this ONLY for Level 2!
+    [SerializeField] private CompanionSoulSystem companionSoul; // Drag your companion ghost here
+
     [Header("Multi-Scene Progression Configuration")]
     [SerializeField] private bool isFinalLevelPortal = false; // Check this ONLY on Level 3's final portal!
     [SerializeField] private string nextSceneName;            // Exact name of the next level scene (e.g., "GameplayLevel2")
@@ -41,6 +45,11 @@ public class LevelPortalTrigger : MonoBehaviour
             playerSoul = FindAnyObjectByType<SoulMassSystem>();
         }
 
+        if (requireCompanion && companionSoul == null)
+        {
+            companionSoul = FindAnyObjectByType<CompanionSoulSystem>();
+        }
+
         if (playerSoul == null)
         {
             Debug.LogError("[Portal] Could not find SoulMassSystem in the scene! Please assign it in the Inspector.");
@@ -49,7 +58,35 @@ public class LevelPortalTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (!portalIsActive && playerSoul != null && playerSoul.IsEquilibrium)
+        if (portalIsActive) return;
+
+        if (playerSoul == null)
+        {
+            playerSoul = FindAnyObjectByType<SoulMassSystem>();
+            return;
+        }
+
+        if (requireCompanion && companionSoul == null)
+        {
+            companionSoul = FindAnyObjectByType<CompanionSoulSystem>();
+        }
+
+        // === LEVEL 2 PHASE 1 INTERCEPTION ===
+        // If companion isn't freed yet, and Nix hits 21g, transfer mass to companion!
+        if (requireCompanion && companionSoul != null && !companionSoul.IsEquilibrium && playerSoul.IsEquilibrium)
+        {
+            float transferredWeight = playerSoul.TransferMassAndReset();
+            companionSoul.ReceiveTransferredMass(transferredWeight);
+            
+            Debug.Log("[Portal] Phase 1 Complete: Companion freed and charged to 21g! Nix reset. Gather your second 21g, Nix!");
+            return; // Skip portal check this frame so Nix can start his second run
+        }
+
+        // === STANDARD EQUILIBRIUM CHECK FOR PORTAL ===
+        bool playerReady = playerSoul.IsEquilibrium;
+        bool companionReady = !requireCompanion || (companionSoul != null && companionSoul.IsEquilibrium);
+
+        if (playerReady && companionReady)
         {
             CheckAndActivatePortal();
         }
@@ -151,5 +188,22 @@ public class LevelPortalTrigger : MonoBehaviour
 
         portalVisuals.transform.localScale = targetScale;
         onComplete?.Invoke();
+    }
+
+    private IEnumerator LoadNextLevelAsync(string sceneName)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+        asyncLoad.allowSceneActivation = false;
+
+        // While the scene loads in the background, you can display a fade or loading UI
+        while (!asyncLoad.isDone)
+        {
+            // Once loading is close to complete, activate the scene smoothly
+            if (asyncLoad.progress >= 0.9f)
+            {
+                asyncLoad.allowSceneActivation = true;
+            }
+            yield return null;
+        }
     }
 }

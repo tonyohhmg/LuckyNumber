@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: WaterCanisterItemWeightData
   m_EditorClassIdentifier: Assembly-CSharp::ItemWeightData
   itemName: Water Canister
-  weightInGrams: 4
+  weightInGrams: 14
   particleColorTint: {r: 0, g: 1, b: 1, a: 1}

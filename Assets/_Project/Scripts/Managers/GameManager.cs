@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -18,6 +19,13 @@ public class GameManager : MonoBehaviour
     [Header("Scripts to Enable/Disable")]
     [SerializeField] private MonoBehaviour playerControllerScript; 
 
+    [Header("Lives Settings")]
+    [SerializeField] private int maxLives = 3;
+    private int currentLives;
+
+    public int CurrentLives => currentLives;
+    public event Action<int> OnLivesChanged;
+
     private bool isPaused = false;
     private bool isLevelWonOrLost = false;
     private bool isSpawning = false;
@@ -32,6 +40,9 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        
+        // Initialize lives on fresh boot
+        currentLives = maxLives;
     }
 
     private void OnEnable()
@@ -54,9 +65,19 @@ public class GameManager : MonoBehaviour
         // 2. THEN force hide and completely reset all UI containers
         HideAndResetAllUIOverlays();
 
-        // 3. If we loaded into a gameplay scene, start spawn routine
+        // 3. If we loaded into a gameplay scene, start spawn routine & initialize lives
         if (scene.name != mainMenuSceneName)
         {
+            // If lives dropped to 0 or uninitialized, ensure they are reset to max when starting fresh
+            if (currentLives <= 0)
+            {
+                ResetLives();
+            }
+            else
+            {
+                OnLivesChanged?.Invoke(currentLives);
+            }
+
             SoulMassSystem massSystem = FindAnyObjectByType<SoulMassSystem>();
             if (massSystem != null)
             {
@@ -73,6 +94,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            // When returning to Main Menu, always reset lives back to 3 so the next run starts fresh!
+            ResetLives();
             isSpawning = false;
         }
     }
@@ -82,7 +105,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
 
-        // Disable Game Over UI & reset root visual element display if using UI Toolkit
         if (gameOverUIContainer != null) 
         {
             var doc = gameOverUIContainer.GetComponent<UIDocument>();
@@ -93,7 +115,6 @@ public class GameManager : MonoBehaviour
             gameOverUIContainer.SetActive(false);
         }
 
-        // Disable Game Won UI & reset root visual element display if using UI Toolkit
         if (gameWonUIContainer != null) 
         {
             var doc = gameWonUIContainer.GetComponent<UIDocument>();
@@ -104,7 +125,6 @@ public class GameManager : MonoBehaviour
             gameWonUIContainer.SetActive(false);
         }
 
-        // Disable Pause Menu UI & reset root visual element display if using UI Toolkit
         if (pauseMenuUIContainer != null) 
         {
             var doc = pauseMenuUIContainer.GetComponent<UIDocument>();
@@ -218,18 +238,10 @@ public class GameManager : MonoBehaviour
     {
         isSpawning = true;
 
-        // Search by name first to avoid UnityException if the tag isn't defined yet
         GameObject portal = GameObject.Find("StartPortal");
         if (portal == null)
         {
-            try 
-            {
-                portal = GameObject.FindWithTag("StartPortal");
-            }
-            catch 
-            {
-                // Ignore if tag doesn't exist in Project Settings
-            }
+            try { portal = GameObject.FindWithTag("StartPortal"); } catch {}
         }
 
         GameObject ghost = playerControllerScript != null ? playerControllerScript.gameObject : null;
@@ -359,6 +371,7 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        ResetLives(); // Always reset lives when returning to main menu
         HideAndResetAllUIOverlays();
         SceneManager.LoadScene(mainMenuSceneName);
     }
@@ -375,6 +388,32 @@ public class GameManager : MonoBehaviour
         else
         {
             GoToMainMenu();
+        }
+    }
+
+    public void StartNewGame()
+    {
+        ResetLives();
+    }
+
+    public void ResetLives()
+    {
+        currentLives = maxLives;
+        OnLivesChanged?.Invoke(currentLives);
+        Debug.Log($"[GameManager] Lives successfully reset to max: {currentLives}");
+    }
+
+    public void LoseLife()
+    {
+        currentLives--;
+        currentLives = Mathf.Max(0, currentLives);
+        OnLivesChanged?.Invoke(currentLives);
+
+        Debug.Log($"[GameManager] Life lost! Remaining lives: {currentLives}");
+
+        if (currentLives <= 0)
+        {
+            TriggerGameOver();
         }
     }
 }

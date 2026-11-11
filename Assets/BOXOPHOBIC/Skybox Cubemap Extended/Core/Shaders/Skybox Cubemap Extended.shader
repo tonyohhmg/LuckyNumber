@@ -266,7 +266,7 @@ Shader "Skybox/Cubemap Extended"
 	
 	}
 	
-	CustomEditor "SkyboxExtended.MaterialGUI"
+	// CustomEditor "SkyboxExtended.MaterialGUI"
 	
 	Fallback "Skybox/Cubemap"
 }

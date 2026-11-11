@@ -1,14 +1,29 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_Project/UI/Styles/MassHUD.uss?fileID=7433441132597879392&amp;guid=e2b08dfbfadbbcf4ba1fbfe8a21dcfaf&amp;type=3#MassHUD"/>
     <ui:VisualElement name="HUDContainer" class="hud-root">
-        <ui:VisualElement name="MassIndicator" class="indicator-pill">
-            <ui:Label text="SOUL MASS" class="hud-header" />
-            <ui:VisualElement class="weight-row">
-                <ui:Label name="CurrentWeightLabel" text="0.0" class="current-weight-text" />
-                <ui:Label text=" / " class="weight-separator" />
-                <ui:Label name="TargetWeightLabel" text="21.0" class="target-weight-text" />
+        <ui:VisualElement class="top-hud-section">
+            <ui:Label name="LevelNameLabel" text="LEVEL 1" class="level-name-label"/>
+            <ui:VisualElement name="divider" class="divider"/>
+            <ui:VisualElement name="LivesContainer" class="lives-container">
+                <ui:VisualElement name="Life1" class="life-icon life-active"/>
+                <ui:VisualElement name="Life2" class="life-icon life-active"/>
+                <ui:VisualElement name="Life3" class="life-icon life-active"/>
             </ui:VisualElement>
-            <ui:Label text="echoes" class="echoes-label" />
+        </ui:VisualElement>
+        <ui:VisualElement name="MassIndicator" class="indicator-pill">
+            <ui:Label name="ObjectiveLabel" text="Absorb 21.0 echoes to free your trapped companion!" class="objective-label"/>
+            <ui:VisualElement name="divider" class="divider"/>
+            <ui:Label text="SOUL MASS" class="hud-header"/>
+            <ui:VisualElement class="weight-row">
+                <ui:Label name="CurrentWeightLabel" text="0.0" class="current-weight-text"/>
+                <ui:Label text=" / " class="weight-separator"/>
+                <ui:Label name="TargetWeightLabel" text="21.0" class="target-weight-text"/>
+            </ui:VisualElement>
+            <ui:Label text="echoes" class="echoes-label"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="CompanionSpeechBubble" class="speech-bubble" style="display: none;">
+            <ui:Label name="SpeechBubbleLabel" text="Nix, I need your help!" class="speech-bubble-text"/>
+            <ui:VisualElement class="speech-bubble-tail"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

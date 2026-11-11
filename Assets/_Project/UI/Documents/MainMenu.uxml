@@ -12,7 +12,7 @@
                 </ui:VisualElement>
             </ui:Button>
             <ui:VisualElement name="ControlsContainer" class="controls-container">
-                <ui:VisualElement name="KeyboardControls" class="control-group" style="display: flex;">
+                <ui:VisualElement name="KeyboardControls" class="control-group">
                     <ui:VisualElement class="control-item">
                         <ui:VisualElement class="wasd-container">
                             <ui:VisualElement class="wasd-top-row">
@@ -26,6 +26,8 @@
                         </ui:VisualElement>
                         <ui:Label text="Move" class="control-label"/>
                     </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="KeyboardControlsTwo" class="control-group-two">
                     <ui:VisualElement class="control-item">
                         <ui:VisualElement class="keycap-group">
                             <ui:Label text="SPACE" class="wide-keycap"/>
@@ -38,8 +40,14 @@
                         </ui:VisualElement>
                         <ui:Label text="Fall" class="control-label"/>
                     </ui:VisualElement>
+                    <ui:VisualElement class="control-item">
+                        <ui:VisualElement class="keycap-group">
+                            <ui:Label text="Q" class="wide-keycap"/>
+                        </ui:VisualElement>
+                        <ui:Label text="Drop Item" class="control-label"/>
+                    </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="GamepadControls" class="control-group" style="display: none;">
+                <ui:VisualElement name="GamepadControls" class="gamepad-control-group" style="display: none;">
                     <ui:VisualElement class="control-item">
                         <ui:VisualElement class="keycap-group">
                             <ui:Image class="l-stick-icon"/>
@@ -63,6 +71,12 @@
                             <ui:Image class="r-trigger-icon"/>
                         </ui:VisualElement>
                         <ui:Label text="Rise" class="control-label"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="control-item">
+                        <ui:VisualElement class="keycap-group">
+                            <ui:Image class="x-button-icon"/>
+                        </ui:VisualElement>
+                        <ui:Label text="Drop Item" class="control-label"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>

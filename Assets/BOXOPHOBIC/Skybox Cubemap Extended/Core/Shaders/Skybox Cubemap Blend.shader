@@ -280,7 +280,7 @@ Shader "Skybox/Cubemap Blend"
 	
 	}
 	
-	CustomEditor "SkyboxExtended.MaterialGUI"
+	// CustomEditor "SkyboxExtended.MaterialGUI"
 	
 	Fallback "Skybox/Cubemap"
 }

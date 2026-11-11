@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BoomboxItemWeightData
   m_EditorClassIdentifier: Assembly-CSharp::ItemWeightData
   itemName: Boombox
-  weightInGrams: 10
+  weightInGrams: 12
   particleColorTint: {r: 0, g: 1, b: 1, a: 1}

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SoccerBallItemWeightData
   m_EditorClassIdentifier: Assembly-CSharp::ItemWeightData
   itemName: Soccer Ball
-  weightInGrams: 4
+  weightInGrams: 3
   particleColorTint: {r: 0, g: 1, b: 1, a: 1}

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameWonMenuHandler : MonoBehaviour
 {
     private UIDocument uiDocument;
-    private Button restartButton; // Or "PlayAgainButton" depending on your UXML element name
+    private Button restartButton;
 
     private void Awake()
     {
@@ -17,13 +17,20 @@ public class GameWonMenuHandler : MonoBehaviour
         if (uiDocument != null)
         {
             var root = uiDocument.rootVisualElement;
-            // Find your button by its name in the UXML file (e.g., "RestartButton" or "PlayAgainButton")
-            restartButton = root.Q<Button>("RestartButton"); 
+            restartButton = root.Q<Button>("GameWonRestartButton"); 
         }
 
         if (restartButton != null)
         {
             restartButton.clicked += OnStartOverClicked;
+
+            // --- ADDED: Hover sound listener ---
+            restartButton.UnregisterCallback<PointerEnterEvent>(OnButtonHover);
+            restartButton.RegisterCallback<PointerEnterEvent>(OnButtonHover);
+        }
+        else
+        {
+            Debug.LogError("[GameWonMenuHandler] Could not find 'GameWonRestartButton' in UXML!");
         }
     }
 
@@ -37,10 +44,18 @@ public class GameWonMenuHandler : MonoBehaviour
 
     private void OnStartOverClicked()
     {
-        // Unfreeze time if it was paused
+        // Unfreeze time
         Time.timeScale = 1f;
 
-        // Take the player all the way back to the Main Menu from scratch
+        // Take the player back to the Main Menu
         SceneManager.LoadScene("MainMenuScene");
+    }
+
+    private void OnButtonHover(PointerEnterEvent evt)
+    {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayButtonHoverSound();
+        }
     }
 }

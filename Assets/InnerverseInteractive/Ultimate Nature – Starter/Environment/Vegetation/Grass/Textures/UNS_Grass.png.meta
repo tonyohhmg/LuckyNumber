@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: 2af1601ba09f43e4f8b69a794b72fb75
+AssetOrigin:
+  serializedVersion: 1
+  productId: 176906
+  packageName: "Ultimate Nature \u2013 Starter"
+  packageVersion: 1.3.0
+  assetPath: "Assets/InnerverseInteractive/Ultimate Nature \u2013 Starter/Environment/Vegetation/Grass/Textures/UNS_Grass.png"
+  uploadId: 964150
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -21,7 +28,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -53,7 +60,9 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationMethod: 0
   spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
   textureType: 0
   textureShape: 1
   singleChannelComponent: 0
@@ -141,10 +150,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 176906
-  packageName: "Ultimate Nature \u2013 Starter"
-  packageVersion: 1.3.0
-  assetPath: "Assets/InnerverseInteractive/Ultimate Nature \u2013 Starter/Environment/Vegetation/Grass/Textures/UNS_Grass.png"
-  uploadId: 964150

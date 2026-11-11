@@ -14,7 +14,6 @@
     padding: 45px 65px;
     align-items: center;
     width: 460px;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
     border-top-width: 0;
     border-right-width: 0;
     border-bottom-width: 0;
