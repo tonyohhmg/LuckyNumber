@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,7 +17,7 @@ public class SoulMassSystem : MonoBehaviour
     public event Action OnOverloaded;
 
     private float currentMass;
-    private PickupItem currentItem; 
+    private readonly List<PickupItem> inventory = new List<PickupItem>();
 
     public float CurrentMass => currentMass;
     public float CurrentWeight => currentMass; 
@@ -34,7 +35,8 @@ public class SoulMassSystem : MonoBehaviour
         Keyboard kb = Keyboard.current;
         if (kb == null) return;
 
-        if (kb.qKey.wasPressedThisFrame)
+        // Pressing 'Q' drops ONLY the single most recently absorbed item
+        if (kb.qKey.wasPressedThisFrame && inventory.Count > 0)
         {
             DropCurrentItem();
         }
@@ -55,7 +57,7 @@ public class SoulMassSystem : MonoBehaviour
         }
 
         currentMass = projectedMass;
-        currentItem = item;
+        inventory.Add(item);
         
         item.OnAbsorbed();
         
@@ -70,37 +72,57 @@ public class SoulMassSystem : MonoBehaviour
         return true;
     }
 
+    /// <summary>
+    /// Drops ONLY the single most recently absorbed item (LIFO) when Q is pressed.
+    /// </summary>
     public void DropCurrentItem()
     {
-        if (currentItem == null) return;
+        if (inventory.Count == 0)
+        {
+            Debug.Log("[SoulMassSystem] Drop requested, but inventory is empty.");
+            return;
+        }
 
-        currentMass -= currentItem.WeightData.WeightInGrams; 
-        currentMass = Mathf.Max(baseMass, currentMass);
+        // Grab ONLY the very last item added to the inventory list
+        int lastIndex = inventory.Count - 1;
+        PickupItem itemToDrop = inventory[lastIndex];
+        
+        // Remove ONLY this single item from tracking
+        inventory.RemoveAt(lastIndex);
 
-        // Direction forward from the player
-        Vector3 dropDir = transform.forward;
-        if (dropDir == Vector3.zero) dropDir = Vector3.forward;
+        if (itemToDrop != null && itemToDrop.WeightData != null)
+        {
+            currentMass -= itemToDrop.WeightData.WeightInGrams; 
+            currentMass = Mathf.Max(baseMass, currentMass);
 
-        Vector3 dropPosition = transform.position + dropDir * 2.5f;
-        dropPosition.y = transform.position.y; // Keep on floor plane
+            // Drop 3.0 meters forward
+            Vector3 dropDir = transform.forward;
+            if (dropDir == Vector3.zero) dropDir = Vector3.forward;
 
-        currentItem.OnDropped(dropPosition, transform.position);
-        currentItem = null;
+            Vector3 dropPosition = transform.position + dropDir * 3.0f;
+            dropPosition.y = transform.position.y;
+
+            itemToDrop.OnDropped(dropPosition, transform.position);
+            
+            Debug.Log($"[SoulMassSystem] SUCCESS: Dropped 1 item ({itemToDrop.name}). Items remaining in inventory: {inventory.Count}");
+        }
 
         OnWeightChanged?.Invoke(currentMass, maxTargetMass);
     }
 
+    public void DropLastItem() => DropCurrentItem();
+
     public void ResetToBaseline()
     {
-        currentItem = null;
+        inventory.Clear();
         currentMass = baseMass;
         OnWeightChanged?.Invoke(currentMass, maxTargetMass);
-        Debug.Log("[SoulMassSystem] Weight and items reset to baseline for the next level.");
+        Debug.Log("[SoulMassSystem] Weight and items reset to baseline.");
     }
 
     private void TriggerOverloadPenalty()
     {
-        // 1. Play overload zap sound effect
+        // 1. Play overload sound effect
         AudioManager.Instance?.PlayOverloadSound();
 
         // 2. Play overload particle burst if assigned
@@ -113,28 +135,32 @@ public class SoulMassSystem : MonoBehaviour
 
         OnOverloaded?.Invoke();
 
-        // 3. Scatter current item out from center of ghost's world location
-        if (currentItem != null)
+        Debug.Log($"[SoulMassSystem] OVERLOAD PENALTY: Scattering ALL {inventory.Count} items.");
+
+        // 3. Scatter ALL items currently in inventory out from the ghost's location on overload
+        foreach (var item in inventory)
         {
+            if (item == null) continue;
+
             Vector3 randomDir = UnityEngine.Random.insideUnitSphere;
-            randomDir.y = 0; // Keep horizontal direction clean
+            randomDir.y = 0; 
             if (randomDir == Vector3.zero) randomDir = transform.forward;
             randomDir.Normalize();
 
-            // Destination target position on floor (3.5m to 5.0m away)
             Vector3 targetFloorPos = transform.position + randomDir * UnityEngine.Random.Range(3.5f, 5.0f);
             targetFloorPos.y = transform.position.y;
 
-            // Pass (targetFloorPos, transform.position) so it flies directly out of the Ghost!
-            currentItem.OnDropped(targetFloorPos, transform.position);
-            currentItem = null;
+            item.OnDropped(targetFloorPos, transform.position);
         }
 
-        // 4. Reset mass state back to base baseline (1.0g)
+        // Clear the inventory list completely
+        inventory.Clear();
+
+        // 4. Reset mass back to base baseline
         currentMass = baseMass;
         OnWeightChanged?.Invoke(currentMass, maxTargetMass);
 
-        // 5. Delegate life reduction to persistent GameManager
+        // 5. Deduct a life via the persistent GameManager
         if (GameManager.Instance != null)
         {
             GameManager.Instance.LoseLife();
@@ -142,13 +168,13 @@ public class SoulMassSystem : MonoBehaviour
     }
 
     /// <summary>
-    /// Transfers current mass to the companion and resets Nix back to 0g baseline.
+    /// Transfers current mass to the companion and resets Nix back to baseline.
     /// </summary>
     public float TransferMassAndReset()
     {
         float transferredWeight = currentMass;
-        currentItem = null;
-        currentMass = baseMass; // Resets back to baseMass (1.0g or 0.0g depending on your setup)
+        inventory.Clear();
+        currentMass = baseMass; 
         
         OnWeightChanged?.Invoke(currentMass, maxTargetMass);
         Debug.Log($"[SoulMassSystem] Transferred {transferredWeight}g to companion and reset Nix to baseline.");

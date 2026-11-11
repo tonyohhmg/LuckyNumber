@@ -100,7 +100,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4315980460206069383}
   - component: {fileID: 2456599840237334245}
-  - component: {fileID: 5936221014469350536}
   m_Layer: 0
   m_Name: UNS_Mushroom_Patch
   m_TagString: Untagged
@@ -159,28 +158,6 @@ LODGroup:
     - renderer: {fileID: 8962484763344002249}
   m_Enabled: 1
   m_GlobalIlluminationLOD: 0
---- !u!64 &5936221014469350536
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6684935879519352256}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4624458766430847684, guid: 27c3f4d36f77dde429372ccba3513837, type: 3}
 --- !u!1 &8041568120234881133
 GameObject:
   m_ObjectHideFlags: 0

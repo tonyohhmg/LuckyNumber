@@ -190,7 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7679479510096779179}
   - component: {fileID: 790742994856015157}
-  - component: {fileID: 614059572065387929}
+  - component: {fileID: 8744515504429062054}
   m_Layer: 0
   m_Name: UNS_Standard_Rock_03
   m_TagString: Untagged
@@ -249,8 +249,8 @@ LODGroup:
     - renderer: {fileID: 1933590862281043612}
   m_Enabled: 1
   m_GlobalIlluminationLOD: 0
---- !u!64 &614059572065387929
-MeshCollider:
+--- !u!65 &8744515504429062054
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -267,10 +267,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8660027153776480934, guid: cdfa04c51cadc7246b34041135934d73, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 5, y: 2, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7756469226934752076
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3604954021427154081}
   - component: {fileID: 5602076682272665045}
-  - component: {fileID: 3722084207790178316}
+  - component: {fileID: 5119547880271014717}
   m_Layer: 0
   m_Name: UNS_Tiny_Rock_05
   m_TagString: Untagged
@@ -69,8 +69,8 @@ LODGroup:
     - renderer: {fileID: 4173077417542186904}
   m_Enabled: 1
   m_GlobalIlluminationLOD: 0
---- !u!64 &3722084207790178316
-MeshCollider:
+--- !u!65 &5119547880271014717
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -84,13 +84,12 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2549836395250792194, guid: 1442886d9e815e44aaf2b0552058d72a, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.6, y: 0.6, z: 0.6}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6592510888679153547
 GameObject:
   m_ObjectHideFlags: 0

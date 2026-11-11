@@ -64,7 +64,7 @@
     -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Regular.ttf?fileID=12800000&guid=b216ab5c5d76f8043a9afa13090ae148&type=3#Overpass-Regular");
     height: auto;
     margin-top: 0;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .indicator-pill {
@@ -205,4 +205,21 @@
     border-top-color: rgba(255, 255, 255, 0.039);
     align-self: center;
     margin-top: -2px;
+}
+
+.ghosts-container {
+    align-items: center;
+    flex-direction: row;
+}
+
+.duncan-container {
+    align-items: center;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.nix-container {
+    align-items: center;
+    margin-left: 12px;
+    margin-right: 12px;
 }

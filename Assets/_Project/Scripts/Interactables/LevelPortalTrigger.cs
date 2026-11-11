@@ -9,8 +9,8 @@ public class LevelPortalTrigger : MonoBehaviour
     [SerializeField] private SoulMassSystem playerSoul; // Drag your player here
     [SerializeField] private GameObject portalVisuals;    // The actual portal particle effect / mesh
 
-    [Header("Level 2 Companion Requirements")]
-    [SerializeField] private bool requireCompanion = false;     // Check this ONLY for Level 2!
+    [Header("Companion Requirements")]
+    [SerializeField] private bool requireCompanion = true;      // Check this for Level 2 AND Level 3!
     [SerializeField] private CompanionSoulSystem companionSoul; // Drag your companion ghost here
 
     [Header("Multi-Scene Progression Configuration")]
@@ -71,14 +71,29 @@ public class LevelPortalTrigger : MonoBehaviour
             companionSoul = FindAnyObjectByType<CompanionSoulSystem>();
         }
 
-        // === LEVEL 2 PHASE 1 INTERCEPTION ===
-        // If companion isn't freed yet, and Nix hits 21g, transfer mass to companion!
+        // === TRANSFER PHASE: IF DUNCAN IS NOT AT 21g YET AND NIX HITS 21g ===
         if (requireCompanion && companionSoul != null && !companionSoul.IsEquilibrium && playerSoul.IsEquilibrium)
         {
             float transferredWeight = playerSoul.TransferMassAndReset();
-            companionSoul.ReceiveTransferredMass(transferredWeight);
             
-            Debug.Log("[Portal] Phase 1 Complete: Companion freed and charged to 21g! Nix reset. Gather your second 21g, Nix!");
+            // If Duncan started freed in Level 3, we update his mass directly without triggering the Level 2 orb trap code
+            if (companionSoul.IsFreed)
+            {
+                // Force-feed Duncan his 21g to fill his UI/mass bar
+                for (int i = 0; i < 3; i++) // or a direct setter if available, let's trigger absorb logic or custom fill
+                {
+                    // Alternatively, pass mass directly if CompanionSoulSystem has a method, 
+                    // or reuse ReceiveTransferredMass since it handles IsFreed checks safely.
+                }
+                companionSoul.ReceiveTransferredMass(transferredWeight);
+            }
+            else
+            {
+                // Level 2 behavior (breaks the orb trap)
+                companionSoul.ReceiveTransferredMass(transferredWeight);
+            }
+            
+            Debug.Log("[Portal] Transfer Complete: 21g given to Duncan! Nix reset to zero. Gather your second 21g, Nix!");
             return; // Skip portal check this frame so Nix can start his second run
         }
 
@@ -115,7 +130,7 @@ public class LevelPortalTrigger : MonoBehaviour
         }
 
         AudioManager.Instance?.PlayPortalSpawnSound();
-        Debug.Log("[Portal] 21g Equilibrium reached! Portal smoothly materializing.");
+        Debug.Log("[Portal] Dual 21g Equilibrium reached! Portal smoothly materializing.");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -135,7 +150,7 @@ public class LevelPortalTrigger : MonoBehaviour
                 if (isFinalLevelPortal)
                 {
                     // === LEVEL 3: TRIGGER GAME WON SCREEN ===
-                    Debug.Log("[Portal] SUCCESS! Final Level completed at 21g! Triggering Game Won Screen.");
+                    Debug.Log("[Portal] SUCCESS! Level 3 completed! Triggering Game Won Screen.");
                     if (gameWonUIContainer != null)
                     {
                         gameWonUIContainer.SetActive(true);
@@ -188,22 +203,5 @@ public class LevelPortalTrigger : MonoBehaviour
 
         portalVisuals.transform.localScale = targetScale;
         onComplete?.Invoke();
-    }
-
-    private IEnumerator LoadNextLevelAsync(string sceneName)
-    {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-        asyncLoad.allowSceneActivation = false;
-
-        // While the scene loads in the background, you can display a fade or loading UI
-        while (!asyncLoad.isDone)
-        {
-            // Once loading is close to complete, activate the scene smoothly
-            if (asyncLoad.progress >= 0.9f)
-            {
-                asyncLoad.allowSceneActivation = true;
-            }
-            yield return null;
-        }
     }
 }

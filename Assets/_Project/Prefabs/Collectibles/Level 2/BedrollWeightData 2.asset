@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 781801874c03f054bbcb0f2e2c963bbf, type: 3}
-  m_Name: LanternItemWeightData
+  m_Name: BedrollWeightData 2
   m_EditorClassIdentifier: Assembly-CSharp::ItemWeightData
-  itemName: Lantern
+  itemName: Bed Roll
   weightInGrams: 7
   particleColorTint: {r: 0, g: 1, b: 1, a: 1}

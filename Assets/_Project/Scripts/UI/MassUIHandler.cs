@@ -6,16 +6,21 @@ public class MassUIHandler : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private SoulMassSystem playerMassSystem;
-    [SerializeField] private CompanionSoulSystem companionMassSystem; // Drag companion here for Level 2
-    [SerializeField] private Transform companionTransform;             // Drag companion transform here for position tracking
+    [SerializeField] private CompanionSoulSystem companionMassSystem; 
+    [SerializeField] private Transform companionTransform;             
 
     private UIDocument uiDocument;
     
-    // Mass HUD elements
+    // Nix Mass HUD elements
     private Label currentWeightLabel;
     private Label targetWeightLabel;
+
+    // Duncan Mass HUD elements
+    private VisualElement duncanContainer;
+    private Label companionCurrentWeightLabel;
+    private Label companionTargetWeightLabel;
     
-    // Lives, Level & Objective HUD elements
+    // Lives & Level HUD elements
     private Label levelNameLabel;
     private Label objectiveLabel;
     private VisualElement[] lifeIcons = new VisualElement[3];
@@ -40,11 +45,16 @@ public class MassUIHandler : MonoBehaviour
         {
             var root = uiDocument.rootVisualElement;
             
-            // Query Mass elements
+            // Query Nix Mass elements
             currentWeightLabel = root.Q<Label>("CurrentWeightLabel");
             targetWeightLabel = root.Q<Label>("TargetWeightLabel");
+
+            // Query Duncan Mass elements
+            duncanContainer = root.Q<VisualElement>("DuncanContainer");
+            companionCurrentWeightLabel = root.Q<Label>("CompanionCurrentWeightLabel");
+            companionTargetWeightLabel = root.Q<Label>("CompanionTargetWeightLabel");
             
-            // Query Lives, Level & Objective elements
+            // Query Lives & Level elements
             levelNameLabel = root.Q<Label>("LevelNameLabel");
             objectiveLabel = root.Q<Label>("ObjectiveLabel");
             
@@ -57,28 +67,33 @@ public class MassUIHandler : MonoBehaviour
             speechBubbleLabel = root.Q<Label>("SpeechBubbleLabel");
         }
 
-        // Setup Level Name and Dynamic Level 2 Objectives based on active scene
         string currentScene = SceneManager.GetActiveScene().name;
         if (levelNameLabel != null)
         {
             string formattedLevelName = currentScene switch
             {
                 "GameplayLevel1" => "TWENTY-ONE ECHOES",
-                "GameplayLevel2" => "THE VEILED CORRIDOR",
+                "GameplayLevel2" => "SOULMATE'S BURDEN",
                 "GameplayLevel3" => "ETHEREAL ZENITH",
                 _ => currentScene.ToUpper()
             };
             levelNameLabel.text = formattedLevelName;
         }
 
-        // Set initial objective text
-        UpdateObjectiveText(currentScene);
+        UpdateSceneUIState(currentScene);
 
-        // Register Weight Events
+        // Register Player Weight Events
         if (playerMassSystem != null)
         {
-            playerMassSystem.OnWeightChanged += UpdateWeightUI;
-            UpdateWeightUI(playerMassSystem.CurrentWeight, 21.0f);
+            playerMassSystem.OnWeightChanged += UpdatePlayerWeightUI;
+            UpdatePlayerWeightUI(playerMassSystem.CurrentWeight, playerMassSystem.TargetMass);
+        }
+
+        // Register Companion Weight Events
+        if (companionMassSystem != null)
+        {
+            companionMassSystem.OnCompanionWeightChanged += UpdateCompanionWeightUI;
+            UpdateCompanionWeightUI(companionMassSystem.CurrentMass, 21.0f);
         }
 
         // Register Lives Events
@@ -93,7 +108,12 @@ public class MassUIHandler : MonoBehaviour
     {
         if (playerMassSystem != null)
         {
-            playerMassSystem.OnWeightChanged -= UpdateWeightUI;
+            playerMassSystem.OnWeightChanged -= UpdatePlayerWeightUI;
+        }
+
+        if (companionMassSystem != null)
+        {
+            companionMassSystem.OnCompanionWeightChanged -= UpdateCompanionWeightUI;
         }
 
         if (GameManager.Instance != null)
@@ -106,27 +126,26 @@ public class MassUIHandler : MonoBehaviour
     {
         string currentScene = SceneManager.GetActiveScene().name;
 
-        // Dynamic objective switching for Level 2
-        if (currentScene == "GameplayLevel2")
+        if (currentScene == "GameplayLevel2" || currentScene == "GameplayLevel3")
         {
-            if (playerMassSystem != null && !playerHasFreedCompanion && playerMassSystem.IsEquilibrium)
+            // Check if Duncan has reached equilibrium (Phase 1 complete)
+            if (companionMassSystem != null && !playerHasFreedCompanion && companionMassSystem.IsEquilibrium)
             {
                 playerHasFreedCompanion = true;
 
                 if (objectiveLabel != null)
                 {
-                    objectiveLabel.text = "Help your companion absorb to 21.0 echoes.";
+                    // --- PHASE 2 OBJECTIVE FOR LEVEL 3 ---
+                    objectiveLabel.text = "Absorb 21.0 echoes for Nix to open the portal.";
                 }
 
-                // Hide speech bubble prompt once companion is freed
                 if (speechBubbleContainer != null)
                 {
                     speechBubbleContainer.style.display = DisplayStyle.None;
                 }
             }
 
-            // Screen-space position tracking for trapped companion prompt
-            if (!playerHasFreedCompanion && companionTransform != null && speechBubbleContainer != null)
+            if (currentScene == "GameplayLevel2" && !playerHasFreedCompanion && companionTransform != null && speechBubbleContainer != null)
             {
                 UpdateSpeechBubblePosition();
             }
@@ -138,18 +157,14 @@ public class MassUIHandler : MonoBehaviour
         if (mainCamera == null) mainCamera = Camera.main;
         if (mainCamera == null) return;
 
-        // Target position 1.8 meters above companion center
         Vector3 worldPos = companionTransform.position + Vector3.up * 1.8f;
         Vector3 screenPos = mainCamera.WorldToScreenPoint(worldPos);
 
         if (screenPos.z > 0)
         {
             speechBubbleContainer.style.display = DisplayStyle.Flex;
-
-            // Convert World-to-Screen Y (bottom-left origin) to UI Toolkit Y (top-left origin)
             float uiX = screenPos.x;
             float uiY = Screen.height - screenPos.y;
-
             speechBubbleContainer.style.left = uiX;
             speechBubbleContainer.style.top = uiY;
         }
@@ -159,35 +174,39 @@ public class MassUIHandler : MonoBehaviour
         }
     }
 
-    private void UpdateObjectiveText(string sceneName)
+    private void UpdateSceneUIState(string sceneName)
     {
         if (objectiveLabel == null) return;
 
-        if (sceneName == "GameplayLevel2")
+        if (sceneName == "GameplayLevel1")
+        {
+            objectiveLabel.text = "Absorb 21.0 echoes for equilibrium.";
+            if (duncanContainer != null) duncanContainer.style.display = DisplayStyle.None;
+        }
+        else if (sceneName == "GameplayLevel2")
         {
             objectiveLabel.text = "Absorb 21.0 echoes to free your trapped companion.";
+            if (duncanContainer != null) duncanContainer.style.display = DisplayStyle.None;
         }
         else if (sceneName == "GameplayLevel3")
         {
-            objectiveLabel.text = "Balance the shifting weights & reach the exit.";
-        }
-        else
-        {
-            objectiveLabel.text = "Absorb 21.0 echoes for equilibrium.";
+            // --- PHASE 1 OBJECTIVE FOR LEVEL 3 ---
+            objectiveLabel.text = "Absorb 21.0 echoes and transfer to Duncan.";
+            if (duncanContainer != null) duncanContainer.style.display = DisplayStyle.Flex;
+            playerHasFreedCompanion = false; // Reset to track phase transition
         }
     }
 
-    private void UpdateWeightUI(float current, float max)
+    private void UpdatePlayerWeightUI(float current, float max)
     {
-        if (currentWeightLabel != null)
-        {
-            currentWeightLabel.text = $"{current:F1}";
-        }
+        if (currentWeightLabel != null) currentWeightLabel.text = $"{current:F1}";
+        if (targetWeightLabel != null) targetWeightLabel.text = $"{max:F1}";
+    }
 
-        if (targetWeightLabel != null)
-        {
-            targetWeightLabel.text = $"{max:F1}";
-        }
+    private void UpdateCompanionWeightUI(float current, float max)
+    {
+        if (companionCurrentWeightLabel != null) companionCurrentWeightLabel.text = $"{current:F1}";
+        if (companionTargetWeightLabel != null) companionTargetWeightLabel.text = $"{max:F1}";
     }
 
     private void UpdateLivesDisplay(int remainingLives)

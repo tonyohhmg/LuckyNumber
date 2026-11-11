@@ -100,7 +100,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5316609513351239561}
   - component: {fileID: 6005079155273576335}
-  - component: {fileID: 2206093761840168630}
   m_Layer: 0
   m_Name: UNS_Grass
   m_TagString: Untagged
@@ -159,28 +158,6 @@ LODGroup:
     - renderer: {fileID: 1219037251144198714}
   m_Enabled: 1
   m_GlobalIlluminationLOD: 0
---- !u!64 &2206093761840168630
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997442676426876155}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5594943449212225110, guid: b64664a15804c6a40b649fb352af0896, type: 3}
 --- !u!1 &2555488013108832497
 GameObject:
   m_ObjectHideFlags: 0

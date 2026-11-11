@@ -3523,7 +3523,7 @@ MonoBehaviour:
   rotationSpeed: 8
   floatHeightSpeed: 6
   minScale: {x: 0.6, y: 0.6, z: 0.6}
-  maxScale: {x: 2.2, y: 2.2, z: 2.2}
+  maxScale: {x: 1.8, y: 1.8, z: 1.8}
   scaleLerpSpeed: 10
   overloadParticles: {fileID: 380149117}
 --- !u!114 &1546957113
