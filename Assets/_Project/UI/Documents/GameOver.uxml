@@ -3,7 +3,7 @@
     <ui:VisualElement name="GameOverRoot" class="gameover-root">
         <ui:VisualElement class="gameover-container">
             <ui:Label text="OVERLOADED" class="gameover-title"/>
-            <ui:Label text="Your soul shattered past 21 grams." class="gameover-subtitle"/>
+            <ui:Label text="The balance faltered. Failed to hold 21 echoes." class="gameover-subtitle"/>
             <ui:Button name="GameOverRestartButton" class="menu-button">
                 <ui:VisualElement class="text-group">
                     <ui:Label text="TRY AGAIN" class="button-text"/>

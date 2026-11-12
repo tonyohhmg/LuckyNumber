@@ -157,20 +157,29 @@ public class MassUIHandler : MonoBehaviour
         if (mainCamera == null) mainCamera = Camera.main;
         if (mainCamera == null) return;
 
+        // Target position 1.8 units above Duncan's world position
         Vector3 worldPos = companionTransform.position + Vector3.up * 1.8f;
         Vector3 screenPos = mainCamera.WorldToScreenPoint(worldPos);
 
-        if (screenPos.z > 0)
+        if (screenPos.z > 0 && uiDocument != null && uiDocument.rootVisualElement != null)
         {
             speechBubbleContainer.style.display = DisplayStyle.Flex;
-            float uiX = screenPos.x;
-            float uiY = Screen.height - screenPos.y;
-            speechBubbleContainer.style.left = uiX;
-            speechBubbleContainer.style.top = uiY;
+
+            // Convert bottom-left screen origin to top-left screen origin
+            Vector2 screenPoint = new Vector2(screenPos.x, Screen.height - screenPos.y);
+
+            // Transform screen coordinates into UI Toolkit panel space (respects UI scaling)
+            Vector2 panelPos = RuntimePanelUtils.ScreenToPanel(uiDocument.rootVisualElement.panel, screenPoint);
+
+            speechBubbleContainer.style.left = panelPos.x;
+            speechBubbleContainer.style.top = panelPos.y;
         }
         else
         {
-            speechBubbleContainer.style.display = DisplayStyle.None;
+            if (speechBubbleContainer != null)
+            {
+                speechBubbleContainer.style.display = DisplayStyle.None;
+            }
         }
     }
 

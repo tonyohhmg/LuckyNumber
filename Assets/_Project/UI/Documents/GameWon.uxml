@@ -3,7 +3,7 @@
     <ui:VisualElement name="GameWonContainer" class="gamewon-root">
         <ui:VisualElement class="gamewon-container">
             <ui:Label text="EQUILIBRIUM ACHIEVED" class="gamewon-title"/>
-            <ui:Label text="You successfully weighed the soul at exactly 21g." class="gamewon-subtitle"/>
+            <ui:Label text="Balance restored. Nix and Duncan have reached equilibrium." class="gamewon-subtitle"/>
             <ui:Button name="GameWonRestartButton" class="menu-button">
                 <ui:VisualElement class="text-group">
                     <ui:Label text="PLAY AGAIN" class="button-text"/>

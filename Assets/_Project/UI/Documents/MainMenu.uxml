@@ -6,16 +6,16 @@
                 <ui:Image name="GameTitleLogo" class="game-title-logo"/>
                 <ui:VisualElement name="divider" class="divider"/>
                 <ui:Label text="TWENTY-ONE ECHOES" class="game-subtitle"/>
-                <ui:Button name="PlayButton" class="menu-button" picking-mode="Position">
-                    <ui:VisualElement class="text-group" picking-mode="Ignore">
-                        <ui:Label text="PLAY" class="button-text" picking-mode="Ignore"/>
-                        <ui:VisualElement class="button-underline" picking-mode="Ignore"/>
+                <ui:Button name="PlayButton" picking-mode="Position" class="menu-button">
+                    <ui:VisualElement picking-mode="Ignore" class="text-group">
+                        <ui:Label text="PLAY" picking-mode="Ignore" class="button-text"/>
+                        <ui:VisualElement picking-mode="Ignore" class="button-underline"/>
                     </ui:VisualElement>
                 </ui:Button>
-                <ui:Button name="OptionsButton" class="menu-button" picking-mode="Position">
-                    <ui:VisualElement class="text-group" picking-mode="Ignore" >
-                        <ui:Label text="OPTIONS" class="button-text" picking-mode="Ignore"/>
-                        <ui:VisualElement class="button-underline" picking-mode="Ignore"/>
+                <ui:Button name="OptionsButton" picking-mode="Position" class="menu-button">
+                    <ui:VisualElement picking-mode="Ignore" class="text-group">
+                        <ui:Label text="OPTIONS" picking-mode="Ignore" class="button-text"/>
+                        <ui:VisualElement picking-mode="Ignore" class="button-underline"/>
                     </ui:VisualElement>
                 </ui:Button>
                 <ui:VisualElement name="ControlsContainer" class="controls-container">
@@ -88,7 +88,7 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="OptionsPanel" class="options-panel" style="display: none; width: 480px;">
+            <ui:VisualElement name="OptionsPanel" class="options-panel" style="display: none;">
                 <ui:Label text="OPTIONS" class="options-title"/>
                 <ui:VisualElement class="option-item">
                     <ui:VisualElement class="option-header">
