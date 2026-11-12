@@ -62,7 +62,7 @@
 
 .prompt-weight-text {
     font-size: 40px;
-    color: rgb(127, 189, 250);
+    color: rgb(255, 255, 255);
     -unity-font-style: bold;
     letter-spacing: 1px;
     -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Bold.ttf?fileID=12800000&guid=03df7106d03eff243a35ba1fed28ab56&type=3#Overpass-Bold");

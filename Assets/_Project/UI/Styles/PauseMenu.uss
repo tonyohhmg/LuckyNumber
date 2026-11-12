@@ -47,7 +47,7 @@
     align-items: center;
     justify-content: center;
     -unity-text-align: upper-center;
-    picking-mode: position; 
+    picking-mode: position;
 }
 
 .menu-button > * {
@@ -90,7 +90,8 @@
     width: 100%;
 }
 
-.menu-button:active .button-text {
-    color: rgb(170, 180, 190);
-    scale: 0.97;
+.menu-button:focus .button-text {
+    scale: 1.03;
+    color: rgb(247, 183, 25);
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Bold.ttf?fileID=12800000&guid=03df7106d03eff243a35ba1fed28ab56&type=3#Overpass-Bold");
 }

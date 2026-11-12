@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -303,10 +304,23 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == mainMenuSceneName) return;
 
-        var kb = UnityEngine.InputSystem.Keyboard.current;
-        if (kb == null) return;
+        bool togglePressed = false;
 
-        if (kb.escapeKey.wasPressedThisFrame || kb.pKey.wasPressedThisFrame)
+        // 1. Check Keyboard Input (ESC or P)
+        var kb = Keyboard.current;
+        if (kb != null && (kb.escapeKey.wasPressedThisFrame || kb.pKey.wasPressedThisFrame))
+        {
+            togglePressed = true;
+        }
+
+        // 2. Check Gamepad Start Button Input
+        var pad = Gamepad.current;
+        if (pad != null && pad.startButton.wasPressedThisFrame)
+        {
+            togglePressed = true;
+        }
+
+        if (togglePressed)
         {
             if (isPaused) ResumeGame();
             else PauseGame();
@@ -315,20 +329,49 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
+        if (isPaused) return;
+        StartCoroutine(PauseRoutine());
+    }
+
+    private IEnumerator PauseRoutine()
+    {
         isPaused = true;
         if (pauseMenuUIContainer != null) 
         {
             pauseMenuUIContainer.SetActive(true);
             BindPauseMenuButtons();
         }
+
+        // Wait one frame using real-time so UI Toolkit panel layout initializes fully
+        yield return null;
+
+        // Force focus directly onto the resume button so D-pad navigation lights up immediately
+        if (pauseMenuUIContainer != null)
+        {
+            var doc = pauseMenuUIContainer.GetComponent<UIDocument>();
+            if (doc != null && doc.rootVisualElement != null)
+            {
+                var resumeBtn = doc.rootVisualElement.Q<Button>("ResumeButton");
+                if (resumeBtn != null)
+                {
+                    resumeBtn.Focus();
+                }
+            }
+        }
+
+        // Now freeze the game time
         Time.timeScale = 0f;
     }
 
     public void ResumeGame()
     {
-        isPaused = false;
-        if (pauseMenuUIContainer != null) pauseMenuUIContainer.SetActive(false);
+        // Restore time scale first so normal game loops unfreeze
         Time.timeScale = 1f;
+        isPaused = false;
+        if (pauseMenuUIContainer != null) 
+        {
+            pauseMenuUIContainer.SetActive(false);
+        }
     }
 
     public void TriggerGameOver()

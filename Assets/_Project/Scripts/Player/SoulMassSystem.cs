@@ -33,10 +33,24 @@ public class SoulMassSystem : MonoBehaviour
     private void Update()
     {
         Keyboard kb = Keyboard.current;
-        if (kb == null) return;
+        Gamepad pad = Gamepad.current;
 
-        // Pressing 'Q' drops ONLY the single most recently absorbed item
-        if (kb.qKey.wasPressedThisFrame && inventory.Count > 0)
+        bool dropTriggered = false;
+
+        // 1. Check Keyboard 'Q' key
+        if (kb != null && kb.qKey.wasPressedThisFrame)
+        {
+            dropTriggered = true;
+        }
+
+        // 2. Check Gamepad 'X' button (West button / Square / X)
+        if (pad != null && pad.buttonWest.wasPressedThisFrame)
+        {
+            dropTriggered = true;
+        }
+
+        // Drop ONLY the single most recently absorbed item when triggered
+        if (dropTriggered && inventory.Count > 0)
         {
             DropCurrentItem();
         }
@@ -73,7 +87,7 @@ public class SoulMassSystem : MonoBehaviour
     }
 
     /// <summary>
-    /// Drops ONLY the single most recently absorbed item (LIFO) when Q is pressed.
+    /// Drops ONLY the single most recently absorbed item (LIFO).
     /// </summary>
     public void DropCurrentItem()
     {
@@ -122,10 +136,8 @@ public class SoulMassSystem : MonoBehaviour
 
     private void TriggerOverloadPenalty()
     {
-        // 1. Play overload sound effect
         AudioManager.Instance?.PlayOverloadSound();
 
-        // 2. Play overload particle burst if assigned
         if (overloadParticles != null)
         {
             overloadParticles.gameObject.SetActive(true);
@@ -137,7 +149,6 @@ public class SoulMassSystem : MonoBehaviour
 
         Debug.Log($"[SoulMassSystem] OVERLOAD PENALTY: Scattering ALL {inventory.Count} items.");
 
-        // 3. Scatter ALL items currently in inventory out from the ghost's location on overload
         foreach (var item in inventory)
         {
             if (item == null) continue;
@@ -153,23 +164,17 @@ public class SoulMassSystem : MonoBehaviour
             item.OnDropped(targetFloorPos, transform.position);
         }
 
-        // Clear the inventory list completely
         inventory.Clear();
 
-        // 4. Reset mass back to base baseline
         currentMass = baseMass;
         OnWeightChanged?.Invoke(currentMass, maxTargetMass);
 
-        // 5. Deduct a life via the persistent GameManager
         if (GameManager.Instance != null)
         {
             GameManager.Instance.LoseLife();
         }
     }
 
-    /// <summary>
-    /// Transfers current mass to the companion and resets Nix back to baseline.
-    /// </summary>
     public float TransferMassAndReset()
     {
         float transferredWeight = currentMass;
