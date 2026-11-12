@@ -72,9 +72,9 @@ public class MassUIHandler : MonoBehaviour
         {
             string formattedLevelName = currentScene switch
             {
-                "GameplayLevel1" => "TWENTY-ONE ECHOES",
-                "GameplayLevel2" => "SOULMATE'S BURDEN",
-                "GameplayLevel3" => "ETHEREAL ZENITH",
+                "GameplayLevel1" => "ECHOES OF THE PAST",
+                "GameplayLevel2" => "SOULMATES",
+                "GameplayLevel3" => "PHANTOM CONVERGENCE",
                 _ => currentScene.ToUpper()
             };
             levelNameLabel.text = formattedLevelName;
@@ -136,7 +136,7 @@ public class MassUIHandler : MonoBehaviour
                 if (objectiveLabel != null)
                 {
                     // --- PHASE 2 OBJECTIVE FOR LEVEL 3 ---
-                    objectiveLabel.text = "Absorb 21.0 echoes for Nix to open the portal.";
+                    objectiveLabel.text = "Absorb 21.0 echoes to reach equilibrium.";
                 }
 
                 if (speechBubbleContainer != null)
@@ -180,7 +180,7 @@ public class MassUIHandler : MonoBehaviour
 
         if (sceneName == "GameplayLevel1")
         {
-            objectiveLabel.text = "Absorb 21.0 echoes for equilibrium.";
+            objectiveLabel.text = "Absorb 21.0 echoes to reach equilibrium.";
             if (duncanContainer != null) duncanContainer.style.display = DisplayStyle.None;
         }
         else if (sceneName == "GameplayLevel2")

@@ -1,0 +1,6 @@
+# Unused Asset Cleaner - Deletion Log
+# Generated on: 11/12/2026 8:28:48 AM
+# Total assets deleted: 1
+# Use this list to find paths if you need to restore or re-import anything via Git or backups.
+
+Assets/_Project/Prefabs/Characters/Explosion.prefab

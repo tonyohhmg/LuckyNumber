@@ -13,5 +13,5 @@ AssetOrigin:
   productId: 141496
   packageName: Procedural fire
   packageVersion: 1.1.0
-  assetPath: Assets/Hovl Studio/Procedural fire/Shaders/FireSphere.shader
+  assetPath: Assets/_Project/Shaders/FireSphere.shader
   uploadId: 454218

@@ -1,0 +1,446 @@
+# Unused Asset Cleaner - Deletion Log
+# Generated on: 11/12/2026 8:38:42 AM
+# Total assets deleted: 441
+# Use this list to find paths if you need to restore or re-import anything via Git or backups.
+
+Assets/GhostCharacter_Free/Prefabs/Block.prefab
+Assets/GhostCharacter_Free/Prefabs/Ghost_animation.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Character auras/Buff.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Character auras/Debuff.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Character auras/Healing.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Character auras/Lightning aura.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Character auras/Love aura.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Character auras/Plexus.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Character auras/Star aura.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Environment/Crystal effect blue.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Environment/Crystal effect green.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Environment/Crystal effect red.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Environment/Teleport.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions/Green hit.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions/Love hit.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions/Snow hit.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions/Star hit.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions/Stones hit.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Magic circles/Freeze circle.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Magic circles/Healing circle.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Magic circles/Magic circle 2.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Magic shields/Magic shield blue.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Magic shields/Magic shield pink.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Magic shields/Magic shield yellow.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Portals/Portal blue.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Portals/Portal green.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Portals/Portal red.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Portals/Portal yellow.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Slash effects/Charge slash blue.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Slash effects/Charge slash purple.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Slash effects/Charge slash red.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Slash effects/Electro slash.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Slash effects/Snow slash.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Slash effects/Stone slash.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Smoke effects/Dust ground.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Smoke effects/Dust hemisphere loop.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Smoke effects/Dust loop.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Smoke effects/Dust puff.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Smoke effects/Smoke ground.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Smoke effects/Smoke hemisphere loop.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Smoke effects/Smoke loop.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Smoke effects/Smoke puff.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Smoke effects/Smoke vortex.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks blue.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks explode blue.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks explode green.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks explode pink.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks explode red.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks explode white.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks explode yellow.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks flashing blue.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks flashing green.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks flashing pink.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks flashing red.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks flashing white.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks flashing yellow.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks green.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks pink.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks red.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks white.prefab
+Assets/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks yellow.prefab
+Assets/InnerverseInteractive/Ultimate Nature – Starter/Environment/Rocks/Mountain/Prefabs/UNS_Mountain.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Particles/Fx_Birds.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Particles/Fx_Fire.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Arrow_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Axe_Fireman_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Backpack_Closed_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Backpack_Open_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Bag_Duffle_Plain_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Bag_Duffle_Shapes_Strap_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Ball_Baseball_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Ball_Tennis_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Barrell_Explosive_Fire_Closed_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Barrell_Explosive_Fire_Open_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Barrell_Explosive_Triangle_Closed_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Barrell_Explosive_Triangle_Open_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Barrell_Plain_A_Closed_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Barrell_Plain_A_Open_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Barrell_Plain_B_Closed_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Barrell_Plain_B_Open_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Battery_Car_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Battery_D_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Bear_Trap_Closed_Dark_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Bear_Trap_Closed_Rust_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Bear_Trap_Open_Dark_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Bear_Trap_Open_Rust_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Bed_Bunk_Metal_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Bed_Bunk_Wood_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Bed_Metal_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Boat_Inflatable_Paddle_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Boat_Inflatable_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Broom_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Bulb_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Cabin_Big_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Cabinet_Ground_Wood_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Cabinet_Wall_Wood_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Camp_Sign_Big_Circle_Down_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Camp_Sign_Big_Circle_Up_Roof_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Camp_Sign_Big_Circle_Up_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Camp_Sign_Big_Roof_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Cane_Hiking_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Car_Old_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Cassette_Tape_Small_Black_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Cassette_Tape_Small_Color_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Cassette_Tape_Small_Sticker_Color_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Compass_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Crowbar_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Ducktape_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Dynamite_Bundle_New_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Dynamite_Bundle_Old_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Dynamite_New_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Dynamite_Old_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Exit_Sign_Red_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Exit_Sign_White_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Fire_Extinguisher_Holder_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Flask_Army_Cover_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Flask_Army_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Fuse_Box_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Hatchet_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Haversack_Closed_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Haversack_Open_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Haversack_Wear_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Hunting_Knife_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Lean_To_Tarp_Stick_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Lean_To_Tarp_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Light_Ceiling_Full_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Light_Ceiling_Glass_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Light_Ceiling_No_Glass_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Light_Wall_Full_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Light_Wall_Glass_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Light_Wall_No_Glass_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Light_Work_Big_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Light_Work_Small_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Lighter_Metal_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Lighter_Plastic_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Locker_Metal_Big_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Locker_Metal_Small_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Matches_Fish_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Mattress_Camping_Inflatable_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Pig_Roast_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Plate_Deep_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Plate_Enamel_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Plate_Shallow_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Plates_Deep_Stack_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Plates_Shallow_Stack_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Pocket_Knife_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Propunbutan_Big_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Racket_Tennis_Old_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Road_Flare_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Saw_Folding_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Saw_Two_Man_Crosscut_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Shelf_Wall_Wood_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Shovel_Telescoping_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Signpost_Basic_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Signpost_Branches_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Signpost_Roof_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Sun_Lounger_Dots_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Sun_Lounger_Stripes_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Sun_Lounger_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Supply_Drop_Fabric_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Supply_Drop_Open_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Supply_Drop_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Table_NightStand_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Target_Archery_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Thermos_Pump_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Toilet_Paper_Hanging_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Toilet_Paper_Holder_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Toilet_Paper_OnHolder_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Toilet_Paper_Roll_On_Holder_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Toilet_Paper_Roll_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Toilet_Paper_Standing_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Toilet_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Tray_Food_Color_Stack_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Tray_Food_Color_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Tray_Food_White_Stack_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Tray_Food_White_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Tree_Stand_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Walkie_Talkie_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Wash_Bin_Survival.prefab
+Assets/polyperfect/Poly Survival Pack/Prefabs/Survival/Water_Canister_Faucet_Survival.prefab
+Assets/_Project/Materials/Additive.mat
+Assets/_Project/Materials/Arrow1.mat
+Assets/_Project/Materials/Circle2.mat
+Assets/_Project/Materials/Crack.mat
+Assets/_Project/Materials/CraterFree1.mat
+Assets/_Project/Materials/CrystalFree1.mat
+Assets/_Project/Materials/DistortionPoint.mat
+Assets/_Project/Materials/FlashFree1.mat
+Assets/_Project/Materials/FlashFree2.mat
+Assets/_Project/Materials/FlashFree3.mat
+Assets/_Project/Materials/GlowFree1.mat
+Assets/_Project/Materials/Gradient.mat
+Assets/_Project/Materials/Gradient2.mat
+Assets/_Project/Materials/Heart.mat
+Assets/_Project/Materials/M_NightSkybox.mat
+Assets/_Project/Materials/MagicCircle2.mat
+Assets/_Project/Materials/Mat_EnergyBarrier.mat
+Assets/_Project/Materials/ProjectileFree1.mat
+Assets/_Project/Materials/Slash.mat
+Assets/_Project/Materials/Smoke26 1.mat
+Assets/_Project/Materials/Smoke26.mat
+Assets/_Project/Materials/SmokeFree1.mat
+Assets/_Project/Materials/Snowflake.mat
+Assets/_Project/Materials/Star.mat
+Assets/_Project/Materials/Stone.mat
+Assets/_Project/Materials/TechCircle.mat
+Assets/_Project/Materials/TechCircle2.mat
+Assets/_Project/Materials/Trail67 1.mat
+Assets/_Project/Materials/Trail67.mat
+Assets/_Project/Shaders/FireSphere.shadergraph
+Assets/BOXOPHOBIC/Skybox Cubemap Extended/Demo/Materials/Skybox Cubemap Extended Night.mat
+Assets/InnerverseInteractive/Ultimate Nature – Starter/Demo/Fonts/UNS_Doctor_Glitch SDF.asset
+Assets/InnerverseInteractive/Ultimate Nature – Starter/Demo/Fonts/UNS_Doctor_Glitch.otf
+Assets/InnerverseInteractive/Ultimate Nature – Starter/Demo/Showcase/Grid/Materials/UNS_Grid.mat
+Assets/InnerverseInteractive/Ultimate Nature – Starter/Environment/Sky/Materials/UNS_Skybox_Panoramic.mat
+Assets/InnerverseInteractive/Ultimate Nature – Starter/Environment/Sky/Materials/UNS_Skybox_Procedural.mat
+Assets/polyperfect/Poly Survival Pack/Materials/Nature/M_Rock.mat
+Assets/polyperfect/Poly Survival Pack/Materials/Universal/M_Universal_B.mat
+Assets/polyperfect/Poly Survival Pack/Materials/Universal/M_Universal_C.mat
+Assets/polyperfect/Poly Survival Pack/Materials/Universal/M_Universal_D.mat
+Assets/polyperfect/Poly Survival Pack/Materials/Universal/M_Universal_E.mat
+Assets/polyperfect/Poly Survival Pack/Materials/Universal/M_Universal_F.mat
+Assets/polyperfect/Poly Survival Pack/Materials/Universal/M_Universal_Glass.mat
+Assets/polyperfect/Poly Survival Pack/Materials/Universal/M_Universal_Glass_Night_B.mat
+Assets/polyperfect/Poly Survival Pack/Materials/VFX/M_VFX_Birds.mat
+Assets/polyperfect/Poly Survival Pack/Materials/VFX/M_VFX_Fire.mat
+Assets/_Project/Materials/VFXatlas.psd
+Assets/_Project/Scenes/GameplayLevel1/ReflectionProbe-0.exr
+Assets/_Project/Scenes/GameplayLevel2/ReflectionProbe-0.exr
+Assets/_Project/Scenes/GameplayLevel3/ReflectionProbe-0.exr
+Assets/_Project/Scenes/MainMenuScene/ReflectionProbe-0.exr
+Assets/_Project/Textures/Arrow1.png
+Assets/_Project/Textures/Circle2.png
+Assets/_Project/Textures/Concrete slab.png
+Assets/_Project/Textures/Concrete slab_Height.png
+Assets/_Project/Textures/Concrete slab_MetallicSmoothness.png
+Assets/_Project/Textures/Concrete slab_Normal.png
+Assets/_Project/Textures/Crack.png
+Assets/_Project/Textures/CraterFree1.png
+Assets/_Project/Textures/Crystal1_Base.png
+Assets/_Project/Textures/Crystal1_MS.png
+Assets/_Project/Textures/Crystal1_Normal.png
+Assets/_Project/Textures/CrystalFree1.png
+Assets/_Project/Textures/FlashFree1.png
+Assets/_Project/Textures/FlashFree2.png
+Assets/_Project/Textures/FlashFree3.png
+Assets/_Project/Textures/GlowFree1.png
+Assets/_Project/Textures/Gradient.png
+Assets/_Project/Textures/Gradient2.png
+Assets/_Project/Textures/Heart.png
+Assets/_Project/Textures/MagicCircle2.png
+Assets/_Project/Textures/Point1n.png
+Assets/_Project/Textures/ProjectileFree1.png
+Assets/_Project/Textures/Slash.png
+Assets/_Project/Textures/Smoke26.png
+Assets/_Project/Textures/SmokeFree1.png
+Assets/_Project/Textures/Snowflake.png
+Assets/_Project/Textures/Splat.png
+Assets/_Project/Textures/Star.png
+Assets/_Project/Textures/Stone.png
+Assets/_Project/Textures/TechCircle.png
+Assets/_Project/Textures/TechCircle2.png
+Assets/_Project/Textures/Trail67.png
+Assets/BOXOPHOBIC/Skybox Cubemap Extended/Demo/Textures/Polyverse Skies - Night Sky.exr
+Assets/GhostCharacter_Free/Textures/texture_BlockGrass.png
+Assets/GhostCharacter_Free/Textures/texture_BlockGrass_Normal.png
+Assets/InnerverseInteractive/Ultimate Nature – Starter/Demo/Lighting/Forest/UNS_Forest_Reflection_Cubemap.exr
+Assets/InnerverseInteractive/Ultimate Nature – Starter/Demo/Scenes/Forest/UNS_Demo/ReflectionProbe-0.exr
+Assets/InnerverseInteractive/Ultimate Nature – Starter/Demo/Scenes/Forest/UNS_Demo/ReflectionProbe-1.exr
+Assets/InnerverseInteractive/Ultimate Nature – Starter/Demo/Showcase/Grid/Textures/UNS_Grid.png
+Assets/InnerverseInteractive/Ultimate Nature – Starter/Environment/Sky/Skyboxes/UNS_HDRI.hdr
+Assets/InnerverseInteractive/Ultimate Nature – Starter/Environment/Terrain/Data/UNS_Terrain.asset
+Assets/InnerverseInteractive/Ultimate Nature – Starter/Environment/Terrain/Textures/UNS_Terrain_Dirt.png
+Assets/InnerverseInteractive/Ultimate Nature – Starter/Environment/Terrain/Textures/UNS_Terrain_Grass.png
+Assets/polyperfect/Poly Survival Pack/_Demo Scenes/01_PolySurvivalModels_All/ReflectionProbe-0.exr
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_A_A_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_A_B_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_A_C_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_A_D_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_A_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_A_Steampunk_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_A_Steampunk_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_A_Steampunk_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_B_A_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_B_B_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_B_C_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_B_D_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_B_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_B_Steampunk_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_B_Steampunk_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_B_Steampunk_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_C_A_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_C_B_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_C_C_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_C_D_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_C_Steampunk_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_C_Steampunk_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Floors/Floor_Wooden_C_Steampunk_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Aluminium_A_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Aluminium_A_Farm_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Aluminium_A_Farm_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Aluminium_A_Farm_Mask.tga
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Aluminium_A_Farm_Mtl.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Aluminium_A_Farm_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Aluminium_A_Farm_Rough.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Aluminium_B_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Aluminium_B_Farm_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Aluminium_B_Farm_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Aluminium_B_Farm_Mask.tga
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Aluminium_B_Farm_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Aluminium_B_Farm_Rough.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Aluminium_C_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Aluminium_D_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_A_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_A_Farm_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_A_Farm_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_A_Farm_Mask.tga
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_A_Farm_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_B_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_B_Farm_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_B_Farm_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_B_Farm_Mask.tga
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_B_Farm_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_C_Blue_Fantasy_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_C_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_C_Farm_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_C_Farm_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_C_Farm_Mask.tga
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_C_Farm_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_C_Green_Fantasy_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_C_Red_Fantasy_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_D_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_D_Farm_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_D_Farm_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_D_Farm_Mask.tga
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_D_Farm_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_E_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_E_Farm_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_E_Farm_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Shingles_E_Farm_Mask.tga
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Tiles_Clay_A_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Tiles_Clay_A_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Tiles_Clay_A_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Roofs/Roof_Tiles_Clay_A_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Roof_Shingles_E_Farm_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/wall-stone-bricks-fantasy-height.tif
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Planks_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Planks_Farm_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Planks_Farm_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Planks_Farm_Mask.tga
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Planks_Farm_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Planks_Horizontal_A_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Planks_Horizontal_A_Farm_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Planks_Horizontal_A_Farm_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Planks_Horizontal_A_Farm_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Planks_Horizontal_B_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Planks_Horizontal_Farm_Mask.tga
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Planks_Vertical_A_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Planks_Vertical_A_Farm_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Planks_Vertical_A_Farm_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Planks_Vertical_A_Farm_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Planks_Vertical_B_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Planks_Vertical_Farm_Mask.tga
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Plaster_A_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Plaster_B_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Plaster_C_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Plaster_D_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Plaster_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Plaster_E_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Plaster_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Stone_Bricks_Fantasy_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Stone_Bricks_Fantasy_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Stone_Bricks_Fantasy_Mask.tga
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Stone_Bricks_Fantasy_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Stone_Decorative_A_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Stone_Decorative_B_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Stone_Decorative_Farm_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Stone_Decorative_Farm_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Stone_Decorative_Farm_Mask.tga
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Stone_Decorative_Farm_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_A_Christmas_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_A_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_B_Christmas_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_B_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_C_Christmas_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_C_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_Christmas_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_D_Christmas_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_D_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_E_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_F_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_G_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_H_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_I_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_J_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_K_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_L_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_M_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_N_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_O_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wallpaper_P_Steampunk_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Horizontal_A_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Horizontal_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Horizontal_B_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Horizontal_C_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Horizontal_D_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Horizontal_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Horizontal_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Vertical_A_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Vertical_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Vertical_B_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Vertical_C_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Vertical_D_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Vertical_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Vertical_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Vertical_Planks_A_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Vertical_Planks_B_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Vertical_Planks_C_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Vertical_Planks_D_Farm_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Vertical_Planks_Farm_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Vertical_Planks_Farm_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Vertical_Planks_Farm_Mask.tga
+Assets/polyperfect/Poly Survival Pack/Textures/Buildings/Walls/Wall_Wooden_Vertical_Planks_Farm_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/Nature/Rock_Alb.png
+Assets/polyperfect/Poly Survival Pack/Textures/Nature/Rock_AO.png
+Assets/polyperfect/Poly Survival Pack/Textures/Nature/Rock_Disp.png
+Assets/polyperfect/Poly Survival Pack/Textures/Nature/Rock_Mask.tga
+Assets/polyperfect/Poly Survival Pack/Textures/Nature/Rock_Nrm.png
+Assets/polyperfect/Poly Survival Pack/Textures/VFX/Crow_Sprite.png
+Assets/polyperfect/Poly Survival Pack/Textures/VFX/Fire_Sprite.png
+Assets/polyperfect/Poly Survival Pack/Textures/VFX/Sunrays.png
+Assets/polyperfect/Poly Survival Pack/URP/LUTs/LUT_Blue.png
+Assets/polyperfect/Poly Survival Pack/URP/LUTs/LUT_Bright.png
+Assets/polyperfect/Poly Survival Pack/URP/LUTs/LUT_Dark_Green.png
+Assets/polyperfect/Poly Survival Pack/URP/LUTs/LUT_Green.png
+Assets/polyperfect/Poly Survival Pack/URP/LUTs/LUT_Neutral.png
+Assets/polyperfect/Poly Survival Pack/URP/LUTs/LUT_Orange.png
+Assets/polyperfect/Poly Survival Pack/URP/LUTs/LUT_Pink.png
+Assets/polyperfect/Poly Survival Pack/URP/LUTs/LUT_Red.png
+Assets/polyperfect/Poly Survival Pack/URP/LUTs/LUT_White.png
+Assets/polyperfect/Poly Survival Pack/URP/LUTs/LUT_Yellow.png

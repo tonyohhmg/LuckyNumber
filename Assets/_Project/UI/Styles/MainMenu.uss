@@ -7,6 +7,17 @@
     background-image: url("project://database/Assets/_Project/Art/background.png?fileID=2800000&guid=cf26f2120108b1940aa3a485b7c9de15&type=3#background");
 }
 
+.menu-layout-wrapper {
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 48px;
+    padding-right: 48px;
+    padding-bottom: 48px;
+    padding-left: 48px;
+}
+
 .menu-container {
     background-color: rgba(255, 255, 255, 0);
     border-color: rgba(165, 242, 243, 0.25);
@@ -26,11 +37,12 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-    left: 140px;
+    left: 124px;
     padding-left: 0;
     padding-top: 0;
     padding-right: 0;
     padding-bottom: 0;
+    flex-direction: column;
 }
 
 .game-title-logo {
@@ -74,11 +86,6 @@
     align-items: center;
     justify-content: center;
     -unity-text-align: upper-center;
-    picking-mode: position;
-}
-
-.menu-button > * {
-    picking-mode: ignore;
 }
 
 .text-group {
@@ -122,6 +129,13 @@
     color: rgb(170, 180, 190);
     scale: 0.97;
 }
+
+.menu-button:focus .button-text {
+    scale: 1.1;
+    color: rgb(255, 255, 255);
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Bold.ttf?fileID=12800000&guid=03df7106d03eff243a35ba1fed28ab56&type=3#Overpass-Bold");
+}
+
 
 .controls-container {
     margin-top: 24px;
@@ -294,4 +308,184 @@
     background-image: url("project://database/Assets/_Project/Art/x-button.svg?fileID=7388822144124034973&guid=29cda5acff964f94b9f9cfd560ba2150&type=3#x-button");
     width: 26px;
     height: 26px;
+}
+
+.secondary-button {
+    align-content: flex-end;
+    align-self: flex-start;
+    bottom: 0;
+    position: absolute;
+    right: 48px;
+}
+
+.options-panel {
+    background-color: rgba(255, 255, 255, 0.039);
+    padding-left: 48px;
+    padding-right: 48px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    flex-grow: 0;
+    height: 480px;
+    width: 640px;
+    justify-content: flex-start;
+    align-self: center;
+    margin-right: 0;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    filter: none;
+    backdrop-filter: blur(4);
+    right: 124px;
+    border-left-color: rgba(255, 255, 255, 0.078);
+    border-right-color: rgba(255, 255, 255, 0.078);
+    border-top-color: rgba(255, 255, 255, 0.078);
+    border-bottom-color: rgba(255, 255, 255, 0.078);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+.options-title {
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Bold.ttf?fileID=12800000&guid=03df7106d03eff243a35ba1fed28ab56&type=3#Overpass-Bold");
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 12px;
+}
+
+.option-item {
+    margin-bottom: 16px;
+}
+
+.option-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.option-row {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    -unity-text-align: middle-left;
+    align-self: stretch;
+}
+
+.option-value-label {
+    color: rgb(165, 242, 243);
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Regular.ttf?fileID=12800000&guid=b216ab5c5d76f8043a9afa13090ae148&type=3#Overpass-Regular");
+    font-size: 16px;
+}
+
+.option-label {
+    color: rgb(255, 255, 255);
+    -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Medium.ttf?fileID=12800000&guid=a4d0cc1796036f04c8eac4fbc86455a6&type=3#Overpass-Medium");
+    font-size: 18px;
+    height: 24px;
+    margin-bottom: 8px;
+    -unity-font-style: normal;
+    -unity-text-align: upper-left;
+}
+
+.custom-slider {
+    height: 24px;
+    justify-content: center;
+    position: relative;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.custom-slider-track {
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.078);
+    border-color: rgba(165, 242, 243, 0.25);
+    border-width: 1px;
+    border-radius: 3px;
+    overflow: hidden;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+}
+
+.custom-slider-fill {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(165, 242, 243, 0.078);
+}
+
+.custom-slider-thumb {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(165, 242, 243);
+    border-width: 2px;
+    left: 98%;
+    translate: -50% 0;
+    transition-property: scale;
+    transition-duration: 0.12s;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    filter: none;
+}
+
+.custom-slider:hover .custom-slider-thumb {
+    scale: 1.2;
+}
+
+.custom-toggle {
+    width: 46px;
+    height: 24px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(165, 242, 243, 0.3);
+    border-width: 1px;
+    padding: 3px;
+    justify-content: center;
+    transition-property: background-color, border-color;
+    transition-duration: 0.2s;
+}
+
+.custom-toggle:hover {
+    border-color: rgb(255, 255, 255);
+}
+
+.custom-toggle-knob {
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.6);
+    translate: 0 0;
+    transition-property: translate, background-color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+}
+
+.custom-toggle--checked {
+    background-color: rgba(165, 242, 243, 0.25);
+    border-color: rgb(165, 242, 243);
+}
+
+.custom-toggle--checked .custom-toggle-knob {
+    background-color: rgb(165, 242, 243);
+    translate: 22px 0;
 }

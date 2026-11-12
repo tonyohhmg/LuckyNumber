@@ -91,7 +91,7 @@
 }
 
 .menu-button:focus .button-text {
-    scale: 1.03;
-    color: rgb(247, 183, 25);
+    scale: 1.1;
+    color: rgb(255, 255, 255);
     -unity-font-definition: url("project://database/Assets/_Project/Art/Fonts/Overpass-Bold.ttf?fileID=12800000&guid=03df7106d03eff243a35ba1fed28ab56&type=3#Overpass-Bold");
 }

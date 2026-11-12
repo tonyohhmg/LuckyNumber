@@ -1,84 +1,122 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_Project/UI/Styles/MainMenu.uss?fileID=7433441132597879392&amp;guid=6954dc696895e9342a3885c1c267a960&amp;type=3#MainMenu"/>
     <ui:VisualElement name="MenuRoot" class="menu-root">
-        <ui:VisualElement name="menu-container" class="menu-container">
-            <ui:Image name="GameTitleLogo" class="game-title-logo"/>
-            <ui:VisualElement name="divider" class="divider"/>
-            <ui:Label text="TWENTY-ONE ECHOES" class="game-subtitle"/>
-            <ui:Button name="PlayButton" class="menu-button">
-                <ui:VisualElement class="text-group">
-                    <ui:Label text="PLAY" class="button-text"/>
-                    <ui:VisualElement class="button-underline"/>
-                </ui:VisualElement>
-            </ui:Button>
-            <ui:VisualElement name="ControlsContainer" class="controls-container">
-                <ui:VisualElement name="KeyboardControls" class="control-group">
-                    <ui:VisualElement class="control-item">
-                        <ui:VisualElement class="wasd-container">
-                            <ui:VisualElement class="wasd-top-row">
-                                <ui:Label text="W" class="keycap"/>
+        <ui:VisualElement name="menu-layout-wrapper" class="menu-layout-wrapper">
+            <ui:VisualElement name="menu-container" class="menu-container">
+                <ui:Image name="GameTitleLogo" class="game-title-logo"/>
+                <ui:VisualElement name="divider" class="divider"/>
+                <ui:Label text="TWENTY-ONE ECHOES" class="game-subtitle"/>
+                <ui:Button name="PlayButton" class="menu-button" picking-mode="Position">
+                    <ui:VisualElement class="text-group" picking-mode="Ignore">
+                        <ui:Label text="PLAY" class="button-text" picking-mode="Ignore"/>
+                        <ui:VisualElement class="button-underline" picking-mode="Ignore"/>
+                    </ui:VisualElement>
+                </ui:Button>
+                <ui:Button name="OptionsButton" class="menu-button" picking-mode="Position">
+                    <ui:VisualElement class="text-group" picking-mode="Ignore" >
+                        <ui:Label text="OPTIONS" class="button-text" picking-mode="Ignore"/>
+                        <ui:VisualElement class="button-underline" picking-mode="Ignore"/>
+                    </ui:VisualElement>
+                </ui:Button>
+                <ui:VisualElement name="ControlsContainer" class="controls-container">
+                    <ui:VisualElement name="KeyboardControls" class="control-group">
+                        <ui:VisualElement name="control-item" class="control-item">
+                            <ui:VisualElement class="wasd-container">
+                                <ui:VisualElement class="wasd-top-row">
+                                    <ui:Label text="W" class="keycap"/>
+                                </ui:VisualElement>
+                                <ui:VisualElement class="wasd-bottom-row">
+                                    <ui:Label text="A" class="keycap"/>
+                                    <ui:Label text="S" class="keycap"/>
+                                    <ui:Label text="D" class="keycap"/>
+                                </ui:VisualElement>
                             </ui:VisualElement>
-                            <ui:VisualElement class="wasd-bottom-row">
-                                <ui:Label text="A" class="keycap"/>
-                                <ui:Label text="S" class="keycap"/>
-                                <ui:Label text="D" class="keycap"/>
+                            <ui:Label text="Move" class="control-label"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="KeyboardControlsTwo" class="control-group-two">
+                        <ui:VisualElement class="control-item">
+                            <ui:VisualElement class="keycap-group">
+                                <ui:Label text="SPACE" class="wide-keycap"/>
                             </ui:VisualElement>
+                            <ui:Label text="Rise" class="control-label"/>
                         </ui:VisualElement>
-                        <ui:Label text="Move" class="control-label"/>
+                        <ui:VisualElement class="control-item">
+                            <ui:VisualElement class="keycap-group">
+                                <ui:Label text="L-SHIFT" class="wide-keycap"/>
+                            </ui:VisualElement>
+                            <ui:Label text="Fall" class="control-label"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="control-item">
+                            <ui:VisualElement class="keycap-group">
+                                <ui:Label text="Q" class="wide-keycap"/>
+                            </ui:VisualElement>
+                            <ui:Label text="Drop Item" class="control-label"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="GamepadControls" class="gamepad-control-group" style="display: none;">
+                        <ui:VisualElement class="control-item">
+                            <ui:VisualElement class="keycap-group">
+                                <ui:Image class="l-stick-icon"/>
+                            </ui:VisualElement>
+                            <ui:Label text="Move" class="control-label"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="control-item">
+                            <ui:VisualElement class="keycap-group">
+                                <ui:Image class="r-stick-icon"/>
+                            </ui:VisualElement>
+                            <ui:Label text="Look" class="control-label"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="control-item">
+                            <ui:VisualElement class="keycap-group">
+                                <ui:Image class="l-trigger-icon"/>
+                            </ui:VisualElement>
+                            <ui:Label text="Fall" class="control-label"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="control-item">
+                            <ui:VisualElement class="keycap-group">
+                                <ui:Image class="r-trigger-icon"/>
+                            </ui:VisualElement>
+                            <ui:Label text="Rise" class="control-label"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="control-item">
+                            <ui:VisualElement class="keycap-group">
+                                <ui:Image class="x-button-icon"/>
+                            </ui:VisualElement>
+                            <ui:Label text="Drop Item" class="control-label"/>
+                        </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="KeyboardControlsTwo" class="control-group-two">
-                    <ui:VisualElement class="control-item">
-                        <ui:VisualElement class="keycap-group">
-                            <ui:Label text="SPACE" class="wide-keycap"/>
-                        </ui:VisualElement>
-                        <ui:Label text="Rise" class="control-label"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="OptionsPanel" class="options-panel" style="display: none; width: 480px;">
+                <ui:Label text="OPTIONS" class="options-title"/>
+                <ui:VisualElement class="option-item">
+                    <ui:VisualElement class="option-header">
+                        <ui:Label text="Master Volume" class="option-label"/>
+                        <ui:Label name="VolumeValueLabel" text="100%" class="option-value-label"/>
                     </ui:VisualElement>
-                    <ui:VisualElement class="control-item">
-                        <ui:VisualElement class="keycap-group">
-                            <ui:Label text="L-SHIFT" class="wide-keycap"/>
+                    <ui:VisualElement name="CustomVolumeSlider" class="custom-slider">
+                        <ui:VisualElement class="custom-slider-track">
+                            <ui:VisualElement name="VolumeSliderFill" class="custom-slider-fill"/>
                         </ui:VisualElement>
-                        <ui:Label text="Fall" class="control-label"/>
-                    </ui:VisualElement>
-                    <ui:VisualElement class="control-item">
-                        <ui:VisualElement class="keycap-group">
-                            <ui:Label text="Q" class="wide-keycap"/>
-                        </ui:VisualElement>
-                        <ui:Label text="Drop Item" class="control-label"/>
+                        <ui:VisualElement name="VolumeSliderThumb" class="custom-slider-thumb"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="GamepadControls" class="gamepad-control-group" style="display: none;">
-                    <ui:VisualElement class="control-item">
-                        <ui:VisualElement class="keycap-group">
-                            <ui:Image class="l-stick-icon"/>
-                        </ui:VisualElement>
-                        <ui:Label text="Move" class="control-label"/>
-                    </ui:VisualElement>
-                    <ui:VisualElement class="control-item">
-                        <ui:VisualElement class="keycap-group">
-                            <ui:Image class="r-stick-icon"/>
-                        </ui:VisualElement>
-                        <ui:Label text="Look" class="control-label"/>
-                    </ui:VisualElement>
-                    <ui:VisualElement class="control-item">
-                        <ui:VisualElement class="keycap-group">
-                            <ui:Image class="l-trigger-icon"/>
-                        </ui:VisualElement>
-                        <ui:Label text="Fall" class="control-label"/>
-                    </ui:VisualElement>
-                    <ui:VisualElement class="control-item">
-                        <ui:VisualElement class="keycap-group">
-                            <ui:Image class="r-trigger-icon"/>
-                        </ui:VisualElement>
-                        <ui:Label text="Rise" class="control-label"/>
-                    </ui:VisualElement>
-                    <ui:VisualElement class="control-item">
-                        <ui:VisualElement class="keycap-group">
-                            <ui:Image class="x-button-icon"/>
-                        </ui:VisualElement>
-                        <ui:Label text="Drop Item" class="control-label"/>
+                <ui:VisualElement class="option-item option-row">
+                    <ui:Label text="Mute Audio" class="option-label"/>
+                    <ui:VisualElement name="CustomMuteToggle" class="custom-toggle">
+                        <ui:VisualElement class="custom-toggle-knob"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
+                <ui:VisualElement class="option-item option-row">
+                    <ui:Label text="Fullscreen" class="option-label"/>
+                    <ui:VisualElement name="CustomFullscreenToggle" class="custom-toggle">
+                        <ui:VisualElement class="custom-toggle-knob"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:Button name="CloseOptionsButton" class="menu-button secondary-button">
+                    <ui:Label text="CLOSE" class="button-text"/>
+                </ui:Button>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

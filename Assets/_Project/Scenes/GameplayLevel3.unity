@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 0.5
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.05882353, g: 0.09803922, b: 0.1764706, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 05be0b431ad062e4fa274081d0a5611a, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: cc421da483ed06c49933077a621bff25, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -851,7 +851,7 @@ Transform:
   m_GameObject: {fileID: 860729138}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1100,7 +1100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5198114775054733913, guid: a76fa5e4d53649b40ab846a6f05e7cee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5198114775054733913, guid: a76fa5e4d53649b40ab846a6f05e7cee, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1946,7 +1946,7 @@ Transform:
   m_GameObject: {fileID: 1282078074}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3205,7 +3205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2169159297320510230, guid: f89cb90abbfe0c94aa283ac864980f2b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2169159297320510230, guid: f89cb90abbfe0c94aa283ac864980f2b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3675,7 +3675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4308953434491706168, guid: b6f5b2026ac453f49b0ff02b1d75bc9b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.77
+      value: -4.33
       objectReference: {fileID: 0}
     - target: {fileID: 4308953434491706168, guid: b6f5b2026ac453f49b0ff02b1d75bc9b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3683,7 +3683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4308953434491706168, guid: b6f5b2026ac453f49b0ff02b1d75bc9b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.91
+      value: -5.9
       objectReference: {fileID: 0}
     - target: {fileID: 4308953434491706168, guid: b6f5b2026ac453f49b0ff02b1d75bc9b, type: 3}
       propertyPath: m_LocalRotation.w
