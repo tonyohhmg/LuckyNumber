@@ -5,8 +5,8 @@ public class ObjectInteractionPrompt : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private Transform playerTransform; // Drag your ghost player here (auto-finds SoulMassSystem if left empty)
-    [SerializeField] private float interactionRadius = 3.5f; // Distance threshold to show the prompt
-    [SerializeField] private LayerMask pickupLayer = -1; // Optional layer restriction
+    [SerializeField] private float interactionRadius = 4.0f; // Pure distance threshold around the ghost
+    [SerializeField] private LayerMask pickupLayer = -1; // Set to Everything (-1) to catch items easily
 
     private UIDocument uiDocument;
     private VisualElement promptContainer;
@@ -57,7 +57,7 @@ public class ObjectInteractionPrompt : MonoBehaviour
     {
         if (playerTransform == null || promptContainer == null || nameLabel == null || weightLabel == null || echoesLabel == null) return;
 
-        // Check for any colliders within the interaction radius around the player
+        // Pure proximity check around the player's world position — no looking at the object required!
         Collider[] hits = Physics.OverlapSphere(playerTransform.position, interactionRadius, pickupLayer);
 
         PickupItem closestItem = null;
@@ -104,7 +104,7 @@ public class ObjectInteractionPrompt : MonoBehaviour
         }
     }
 
-    // Draws a wireframe sphere in the Scene view so you can easily visualize the radius
+    // Draws a cyan wireframe sphere around your ghost in Scene view to visualize the proximity range
     private void OnDrawGizmosSelected()
     {
         if (playerTransform != null)

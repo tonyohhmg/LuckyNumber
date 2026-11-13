@@ -37,15 +37,15 @@
                     <ui:VisualElement name="KeyboardControlsTwo" class="control-group-two">
                         <ui:VisualElement class="control-item">
                             <ui:VisualElement class="keycap-group">
-                                <ui:Label text="SPACE" class="wide-keycap"/>
-                            </ui:VisualElement>
-                            <ui:Label text="Rise" class="control-label"/>
-                        </ui:VisualElement>
-                        <ui:VisualElement class="control-item">
-                            <ui:VisualElement class="keycap-group">
                                 <ui:Label text="L-SHIFT" class="wide-keycap"/>
                             </ui:VisualElement>
                             <ui:Label text="Fall" class="control-label"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="control-item">
+                            <ui:VisualElement class="keycap-group">
+                                <ui:Label text="SPACE" class="wide-keycap"/>
+                            </ui:VisualElement>
+                            <ui:Label text="Rise" class="control-label"/>
                         </ui:VisualElement>
                         <ui:VisualElement class="control-item">
                             <ui:VisualElement class="keycap-group">
